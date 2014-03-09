@@ -2,10 +2,10 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
   <title><![CDATA[Category: madnesspro | bwall - Brian Wallace]]></title>
-  <link href="http://bwall.github.io//blog/categories/madnesspro/atom.xml" rel="self"/>
-  <link href="http://bwall.github.io//"/>
-  <updated>2014-03-09T15:22:10-07:00</updated>
-  <id>http://bwall.github.io//</id>
+  <link href="http://bwall.github.io/blog/categories/madnesspro/atom.xml" rel="self"/>
+  <link href="http://bwall.github.io/"/>
+  <updated>2014-03-09T15:25:28-07:00</updated>
+  <id>http://bwall.github.io/</id>
   <author>
     <name><![CDATA[Brian Wallace]]></name>
     <email><![CDATA[nightstrike9809@gmail.com]]></email>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[RSAC 2014 Botnet Vulnerabilities]]></title>
-    <link href="http://bwall.github.io//blog/2014/03/09/rsac-2014-botnet-vulnerabilities/"/>
+    <link href="http://bwall.github.io/blog/2014/03/09/rsac-2014-botnet-vulnerabilities/"/>
     <updated>2014-03-09T14:37:11-07:00</updated>
-    <id>http://bwall.github.io//blog/2014/03/09/rsac-2014-botnet-vulnerabilities</id>
+    <id>http://bwall.github.io/blog/2014/03/09/rsac-2014-botnet-vulnerabilities</id>
     <content type="html"><![CDATA[<p>This year at RSAC 2014, Stuart McClure and myself did a talk titled Hacking Exposed: Art of Deterrence.  During this talk, we announced various botnet vulnerabilities which had not been previously disclosed and some that had been.  Here I will document some of them.</p>
 
 <!-- more -->
