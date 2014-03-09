@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: botnet | bwall - Brian Wallace]]></title>
+  <link href="http://bwall.github.io//blog/categories/botnet/atom.xml" rel="self"/>
+  <link href="http://bwall.github.io//"/>
+  <updated>2014-03-09T15:22:10-07:00</updated>
+  <id>http://bwall.github.io//</id>
+  <author>
+    <name><![CDATA[Brian Wallace]]></name>
+    <email><![CDATA[nightstrike9809@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[RSAC 2014 Botnet Vulnerabilities]]></title>
+    <link href="http://bwall.github.io//blog/2014/03/09/rsac-2014-botnet-vulnerabilities/"/>
+    <updated>2014-03-09T14:37:11-07:00</updated>
+    <id>http://bwall.github.io//blog/2014/03/09/rsac-2014-botnet-vulnerabilities</id>
+    <content type="html"><![CDATA[<p>This year at RSAC 2014, Stuart McClure and myself did a talk titled Hacking Exposed: Art of Deterrence.  During this talk, we announced various botnet vulnerabilities which had not been previously disclosed and some that had been.  Here I will document some of them.</p>
+
+<!-- more -->
+
+
+<h1>Dexter</h1>
+
+<p>Dexter, the POS malware was the botnet in the primary focus of the talk.  There were 2 exploits released prior to RSAC, with slightly different objectives.</p>
+
+<ul>
+<li><a href="https://raw.github.com/rapid7/metasploit-framework/master/modules/exploits/multi/http/dexter_casinoloader_exec.rb">Dexter MSF Module</a></li>
+<li><a href="https://raw.github.com/bwall/BAMF/master/IntegrationQueue/http/dexter.PoC.py">Dexter BAMF PoC</a></li>
+</ul>
+
+
+<h1>Madness Pro</h1>
+
+<p>Madness Pro is a botnet focused on denial of service attacks.  The exploit for this botnet is not yet public as it is still very effective and there are still major versions of this botnet at large.  This exploit can be released upon request.</p>
+
+<h1>Herpes Net 3.0</h1>
+
+<ul>
+<li><a href="https://gist.githubusercontent.com/bwall/97ca8216dfbc91850fd1/raw/0620cbc352cdbbdbf898a776eb4ec6f390ce6b69/HerpesNet.SQLi">Herpes Net 3.0 SQLi</a></li>
+</ul>
+
+
+<h1>MultiLocker</h1>
+
+<ul>
+<li><a href="https://gist.githubusercontent.com/bwall/a5e8b36cabeef924b59d/raw/a8eeea1cacf53af8d8cb7f971246f7238382a776/MultiLocker.Backdoor">MultiLocker Backdoor</a></li>
+</ul>
+
+]]></content>
+  </entry>
+  
+</feed>
