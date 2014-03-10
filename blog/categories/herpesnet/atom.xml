@@ -4,7 +4,7 @@
   <title><![CDATA[Category: herpesnet | bwall - Brian Wallace]]></title>
   <link href="https://bwall.github.io/blog/categories/herpesnet/atom.xml" rel="self"/>
   <link href="https://bwall.github.io/"/>
-  <updated>2014-03-09T17:26:46-07:00</updated>
+  <updated>2014-03-09T19:55:43-07:00</updated>
   <id>https://bwall.github.io/</id>
   <author>
     <name><![CDATA[Brian Wallace]]></name>
@@ -47,7 +47,7 @@
 <h1>MultiLocker</h1>
 
 <ul>
-<li><a href="https://gist.githubusercontent.com/bwall/a5e8b36cabeef924b59d/raw/a8eeea1cacf53af8d8cb7f971246f7238382a776/MultiLocker.Backdoor">MultiLocker Backdoor</a></li>
+<li><a href="/blog/2014/03/09/multilocker-backdoor/">MultiLocker Backdoor</a></li>
 </ul>
 
 ]]></content>

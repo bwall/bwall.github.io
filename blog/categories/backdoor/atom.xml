@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: exploit | bwall - Brian Wallace]]></title>
-  <link href="https://bwall.github.io/blog/categories/exploit/atom.xml" rel="self"/>
+  <title><![CDATA[Category: backdoor | bwall - Brian Wallace]]></title>
+  <link href="https://bwall.github.io/blog/categories/backdoor/atom.xml" rel="self"/>
   <link href="https://bwall.github.io/"/>
   <updated>2014-03-09T19:55:43-07:00</updated>
   <id>https://bwall.github.io/</id>
@@ -44,46 +44,6 @@ curl -v -d "c=whoami" http://c2.panel/lending/PL.php
 </code></p>
 
 <p>For more information on MultiLocker, you can check out a great blog post on it <a href="http://www.xylibox.com/2012/11/multi-locker.html">here</a>.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[RSAC 2014 Botnet Vulnerabilities]]></title>
-    <link href="https://bwall.github.io/blog/2014/03/09/rsac-2014-botnet-vulnerabilities/"/>
-    <updated>2014-03-09T14:37:11-07:00</updated>
-    <id>https://bwall.github.io/blog/2014/03/09/rsac-2014-botnet-vulnerabilities</id>
-    <content type="html"><![CDATA[<p>This year at RSAC 2014, Stuart McClure and myself did a talk titled Hacking Exposed: Art of Deterrence.  During this talk, we announced various botnet vulnerabilities which had not been previously disclosed and some that had been.  Here I will document some of them.</p>
-
-<!-- more -->
-
-
-<h1>Dexter</h1>
-
-<p>Dexter, the POS malware was the botnet in the primary focus of the talk.  There were 2 exploits released prior to RSAC, with slightly different objectives.</p>
-
-<ul>
-<li><a href="https://raw.github.com/rapid7/metasploit-framework/master/modules/exploits/multi/http/dexter_casinoloader_exec.rb">Dexter MSF Module</a></li>
-<li><a href="https://raw.github.com/bwall/BAMF/master/IntegrationQueue/http/dexter.PoC.py">Dexter BAMF PoC</a></li>
-</ul>
-
-
-<h1>Madness Pro</h1>
-
-<p>Madness Pro is a botnet focused on denial of service attacks.  The exploit for this botnet is not yet public as it is still very effective and there are still major versions of this botnet at large.  This exploit can be released upon request.</p>
-
-<h1>Herpes Net 3.0</h1>
-
-<ul>
-<li><a href="https://gist.githubusercontent.com/bwall/97ca8216dfbc91850fd1/raw/0620cbc352cdbbdbf898a776eb4ec6f390ce6b69/HerpesNet.SQLi">Herpes Net 3.0 SQLi</a></li>
-</ul>
-
-
-<h1>MultiLocker</h1>
-
-<ul>
-<li><a href="/blog/2014/03/09/multilocker-backdoor/">MultiLocker Backdoor</a></li>
-</ul>
-
 ]]></content>
   </entry>
   
