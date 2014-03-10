@@ -4,7 +4,7 @@
   <title><![CDATA[Category: multilocker | bwall - Brian Wallace]]></title>
   <link href="https://bwall.github.io/blog/categories/multilocker/atom.xml" rel="self"/>
   <link href="https://bwall.github.io/"/>
-  <updated>2014-03-09T19:55:43-07:00</updated>
+  <updated>2014-03-09T22:10:28-07:00</updated>
   <id>https://bwall.github.io/</id>
   <author>
     <name><![CDATA[Brian Wallace]]></name>
@@ -74,7 +74,7 @@ curl -v -d "c=whoami" http://c2.panel/lending/PL.php
 <h1>Herpes Net 3.0</h1>
 
 <ul>
-<li><a href="https://gist.githubusercontent.com/bwall/97ca8216dfbc91850fd1/raw/0620cbc352cdbbdbf898a776eb4ec6f390ce6b69/HerpesNet.SQLi">Herpes Net 3.0 SQLi</a></li>
+<li><a href="/blog/2014/03/09/herpes-net-3-dot-0-sqli/">Herpes Net 3.0 SQLi</a></li>
 </ul>
 
 
