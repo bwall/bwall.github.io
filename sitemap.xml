@@ -1,43 +1,209 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<urlset xmlns='http://www.sitemaps.org/schemas/sitemap/0.9'>
-    <url>
-        <loc>https://bwall.github.io/blog/2014/03/09/rsac-2014-botnet-vulnerabilities/</loc>
-        <lastmod>2014-03-09T22:07:38-07:00</lastmod>
-    </url>
-    <url>
-        <loc>https://bwall.github.io/blog/2014/03/09/multilocker-backdoor/</loc>
-        <lastmod>2014-03-09T17:41:35-07:00</lastmod>
-    </url>
-    <url>
-        <loc>https://bwall.github.io/blog/2014/03/09/herpes-net-3-dot-0-sqli/</loc>
-        <lastmod>2014-03-09T22:06:39-07:00</lastmod>
-    </url>
-    <url>
-        <loc>https://bwall.github.io/exploits/</loc>
-        <lastmod>2014-03-09T22:14:30-07:00</lastmod>
-    </url>
-    <url>
-        <loc>https://bwall.github.io/robots.txt</loc>
-        <lastmod>2014-03-09T17:26:36-07:00</lastmod>
-    </url>
-    <url>
-        <loc>https://bwall.github.io/malware/botnets/</loc>
-        <lastmod>2014-03-09T17:26:36-07:00</lastmod>
-    </url>
-    <url>
-        <loc>https://bwall.github.io/malware/</loc>
-        <lastmod>2014-03-09T17:26:36-07:00</lastmod>
-    </url>
-    <url>
-        <loc>https://bwall.github.io/blog/archives/</loc>
-        <lastmod>2014-03-09T22:07:38-07:00</lastmod>
-    </url>
-    <url>
-        <loc>https://bwall.github.io/blog/</loc>
-        <lastmod>2014-03-09T22:07:38-07:00</lastmod>
-    </url>
-    <url>
-        <loc>https://bwall.github.io/</loc>
-        <lastmod>2014-03-09T22:07:38-07:00</lastmod>
-    </url>
+<?xml version="1.0" encoding="utf-8"?>
+<urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
+xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<url>
+<loc>https://bwall.github.io/index.html</loc>
+<lastmod>2014-11-08T13:11:32-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/archives.html</loc>
+<lastmod>2014-11-08T13:11:32-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tags.html</loc>
+<lastmod>2014-11-08T13:11:32-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/categories.html</loc>
+<lastmod>2014-11-08T13:11:32-00:00</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/torque-exploitation-explained.html</loc>
+<lastmod>2014-06-02T21:42:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/extract-hosts.html</loc>
+<lastmod>2014-04-18T18:30:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/murdering-dexter.html</loc>
+<lastmod>2014-03-16T22:56:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/herpes-net-30-sqli.html</loc>
+<lastmod>2014-03-09T20:43:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/multilocker-backdoor.html</loc>
+<lastmod>2014-03-09T17:28:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/rsac-2014-botnet-vulnerabilities.html</loc>
+<lastmod>2014-03-09T10:20:00-07:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/category/botnets.html</loc>
+<lastmod>2014-03-09T20:43:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/category/exploit.html</loc>
+<lastmod>2014-06-02T21:42:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/category/tools.html</loc>
+<lastmod>2014-04-18T18:30:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/category/vulnerable-vms.html</loc>
+<lastmod>2014-03-16T22:56:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/backdoor.html</loc>
+<lastmod>2014-03-09T17:28:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/stack.html</loc>
+<lastmod>2014-06-02T21:42:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/vulnerability.html</loc>
+<lastmod>2014-03-09T20:43:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/torque.html</loc>
+<lastmod>2014-06-02T21:42:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/python.html</loc>
+<lastmod>2014-04-18T18:30:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/sqli.html</loc>
+<lastmod>2014-03-09T20:43:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/botnet.html</loc>
+<lastmod>2014-03-16T22:56:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/vulnerable-vm.html</loc>
+<lastmod>2014-03-16T22:56:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/exploit.html</loc>
+<lastmod>2014-06-02T21:42:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/buffer-overflow.html</loc>
+<lastmod>2014-06-02T21:42:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/multilocker.html</loc>
+<lastmod>2014-03-09T17:28:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/herpesnet.html</loc>
+<lastmod>2014-03-09T20:43:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/dexter.html</loc>
+<lastmod>2014-03-16T22:56:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/utility.html</loc>
+<lastmod>2014-04-18T18:30:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://bwall.github.io/tag/project.html</loc>
+<lastmod>2014-04-18T18:30:00-07:53</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
 </urlset>
