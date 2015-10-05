@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Botnet on @botnet_hunter&#39;s blog</title>
-    <link>http://bwall.github.io/tags/botnet/</link>
+    <link>https://bwall.github.io/tags/botnet/</link>
     <description>Recent content in Botnet on @botnet_hunter&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2015 Copyright Brian Wallace</copyright>
     <lastBuildDate>Sun, 16 Mar 2014 10:19:07 -0700</lastBuildDate>
-    <atom:link href="http://bwall.github.io/tags/botnet/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://bwall.github.io/tags/botnet/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Murdering Dexter</title>
-      <link>http://bwall.github.io/murdering-dexter/</link>
+      <link>https://bwall.github.io/murdering-dexter/</link>
       <pubDate>Sun, 16 Mar 2014 10:19:07 -0700</pubDate>
       
-      <guid>http://bwall.github.io/murdering-dexter/</guid>
+      <guid>https://bwall.github.io/murdering-dexter/</guid>
       <description>
 
 &lt;p&gt;Occasionally, I like to build a vulnerable virtual machine demonstating a recently published vulnerability.  One of the reasons I do this is because such a small section of the industry is exposed to botnet panels, and the easiest way to get acquianted is by pwning them.  It also gives people an opportunity to legally use my exploits without hunting down the source code for the command and control panels themselves.  In this vulnerable virtual machine, you get an opportunity to &amp;ldquo;Murder Dexter&amp;rdquo;, the point of sale malware.&lt;/p&gt;
@@ -51,10 +51,10 @@
     
     <item>
       <title>Herpes Net 3.0 SQLi</title>
-      <link>http://bwall.github.io/herpes-net-3.0-sqli/</link>
+      <link>https://bwall.github.io/herpes-net-3.0-sqli/</link>
       <pubDate>Sun, 09 Mar 2014 10:19:07 -0700</pubDate>
       
-      <guid>http://bwall.github.io/herpes-net-3.0-sqli/</guid>
+      <guid>https://bwall.github.io/herpes-net-3.0-sqli/</guid>
       <description>&lt;p&gt;During my talk at RSAC 2014, we announced multiple botnet vulnerabilities which had been discovered.  The following vulnerability is one of them.  Herpes Net is botnet with a wide range of functions, with everything from opening the CD tray to mining bitcoins (via plugins).  With a vulnerability in the command and control panel, we can get information on the botnet operator.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -104,10 +104,10 @@
     
     <item>
       <title>MultiLocker Backdoor</title>
-      <link>http://bwall.github.io/multilocker-backdoor/</link>
+      <link>https://bwall.github.io/multilocker-backdoor/</link>
       <pubDate>Sun, 09 Mar 2014 10:19:07 -0700</pubDate>
       
-      <guid>http://bwall.github.io/multilocker-backdoor/</guid>
+      <guid>https://bwall.github.io/multilocker-backdoor/</guid>
       <description>&lt;p&gt;In a recent search through some underground communities, I came across the source code to a version of the MultiLocker panel.  With ransomware, the security industry is always looking for a good way to resolve the issue without the ransom being paid.  This could potentially be done by gathering information from the botnet&amp;rsquo;s panel.&lt;/p&gt;
 
 &lt;!-- more --&gt;
@@ -132,10 +132,10 @@ die();
     
     <item>
       <title>RSAC 2014 Botnet Vulnerabilities</title>
-      <link>http://bwall.github.io/rsac-2014-botnet-vulnerabilities/</link>
+      <link>https://bwall.github.io/rsac-2014-botnet-vulnerabilities/</link>
       <pubDate>Sun, 09 Mar 2014 10:19:07 -0700</pubDate>
       
-      <guid>http://bwall.github.io/rsac-2014-botnet-vulnerabilities/</guid>
+      <guid>https://bwall.github.io/rsac-2014-botnet-vulnerabilities/</guid>
       <description>
 
 &lt;p&gt;This year at RSAC 2014, Stuart McClure and myself did a talk titled Hacking Exposed: Art of Deterrence.  During this talk, we announced various botnet vulnerabilities which had not been previously disclosed and some that had been.  Here I will document some of them.&lt;/p&gt;
@@ -158,13 +158,13 @@ die();
 &lt;h1 id=&#34;herpes-net-3-0:160628beaf4e25343949f61770a22914&#34;&gt;Herpes Net 3.0&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://bwall.github.io/herpes-net-30-sqli.html&#34;&gt;Herpes Net 3.0 SQLi&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bwall.github.io/herpes-net-30-sqli.html&#34;&gt;Herpes Net 3.0 SQLi&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h1 id=&#34;multilocker:160628beaf4e25343949f61770a22914&#34;&gt;MultiLocker&lt;/h1&gt;
 
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://bwall.github.io/multilocker-backdoor.html&#34;&gt;MultiLocker Backdoor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://bwall.github.io/multilocker-backdoor.html&#34;&gt;MultiLocker Backdoor&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 </description>
     </item>

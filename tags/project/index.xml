@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Project on @botnet_hunter&#39;s blog</title>
-    <link>http://bwall.github.io/tags/project/</link>
+    <link>https://bwall.github.io/tags/project/</link>
     <description>Recent content in Project on @botnet_hunter&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2015 Copyright Brian Wallace</copyright>
     <lastBuildDate>Fri, 18 Apr 2014 10:19:07 -0700</lastBuildDate>
-    <atom:link href="http://bwall.github.io/tags/project/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://bwall.github.io/tags/project/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Extract Hosts</title>
-      <link>http://bwall.github.io/extract-hosts/</link>
+      <link>https://bwall.github.io/extract-hosts/</link>
       <pubDate>Fri, 18 Apr 2014 10:19:07 -0700</pubDate>
       
-      <guid>http://bwall.github.io/extract-hosts/</guid>
+      <guid>https://bwall.github.io/extract-hosts/</guid>
       <description>
 
 &lt;p&gt;Recently, I have been trying to focus more on creating small but useful utilities.  The first of these tools to be posted publicly is &lt;a href=&#34;https://github.com/bwall/ExtractHosts&#34;&gt;Extract Hosts&lt;/a&gt;.  The purpose of this utility is to search for domain names and IP addresses in the supplied input.  The following is information posted to the readme on the project page.  You can download the 1.1.0 release of Extract Hosts &lt;a href=&#34;https://github.com/bwall/ExtractHosts/archive/v1.1.0.zip&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;

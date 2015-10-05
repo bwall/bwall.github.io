@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Backdoor on @botnet_hunter&#39;s blog</title>
-    <link>http://bwall.github.io/tags/backdoor/</link>
+    <link>https://bwall.github.io/tags/backdoor/</link>
     <description>Recent content in Backdoor on @botnet_hunter&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2015 Copyright Brian Wallace</copyright>
     <lastBuildDate>Sun, 09 Mar 2014 10:19:07 -0700</lastBuildDate>
-    <atom:link href="http://bwall.github.io/tags/backdoor/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://bwall.github.io/tags/backdoor/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>MultiLocker Backdoor</title>
-      <link>http://bwall.github.io/multilocker-backdoor/</link>
+      <link>https://bwall.github.io/multilocker-backdoor/</link>
       <pubDate>Sun, 09 Mar 2014 10:19:07 -0700</pubDate>
       
-      <guid>http://bwall.github.io/multilocker-backdoor/</guid>
+      <guid>https://bwall.github.io/multilocker-backdoor/</guid>
       <description>&lt;p&gt;In a recent search through some underground communities, I came across the source code to a version of the MultiLocker panel.  With ransomware, the security industry is always looking for a good way to resolve the issue without the ransom being paid.  This could potentially be done by gathering information from the botnet&amp;rsquo;s panel.&lt;/p&gt;
 
 &lt;!-- more --&gt;

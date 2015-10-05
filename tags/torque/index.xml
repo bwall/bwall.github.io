@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Torque on @botnet_hunter&#39;s blog</title>
-    <link>http://bwall.github.io/tags/torque/</link>
+    <link>https://bwall.github.io/tags/torque/</link>
     <description>Recent content in Torque on @botnet_hunter&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2015 Copyright Brian Wallace</copyright>
     <lastBuildDate>Mon, 02 Jun 2014 16:19:07 -0700</lastBuildDate>
-    <atom:link href="http://bwall.github.io/tags/torque/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://bwall.github.io/tags/torque/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>TORQUE Exploitation Explained</title>
-      <link>http://bwall.github.io/torque-exploit/</link>
+      <link>https://bwall.github.io/torque-exploit/</link>
       <pubDate>Mon, 02 Jun 2014 16:19:07 -0700</pubDate>
       
-      <guid>http://bwall.github.io/torque-exploit/</guid>
+      <guid>https://bwall.github.io/torque-exploit/</guid>
       <description>
 
 &lt;p&gt;The purpose of this post is to explain the TORQUE vulnerability I recently created a proof of concept for. Since the proof of concept was just a simple stub, I feel the mechanics behind the exploit should be described as well.&lt;/p&gt;

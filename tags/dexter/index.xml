@@ -2,20 +2,20 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Dexter on @botnet_hunter&#39;s blog</title>
-    <link>http://bwall.github.io/tags/dexter/</link>
+    <link>https://bwall.github.io/tags/dexter/</link>
     <description>Recent content in Dexter on @botnet_hunter&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2015 Copyright Brian Wallace</copyright>
     <lastBuildDate>Sun, 16 Mar 2014 10:19:07 -0700</lastBuildDate>
-    <atom:link href="http://bwall.github.io/tags/dexter/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://bwall.github.io/tags/dexter/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Murdering Dexter</title>
-      <link>http://bwall.github.io/murdering-dexter/</link>
+      <link>https://bwall.github.io/murdering-dexter/</link>
       <pubDate>Sun, 16 Mar 2014 10:19:07 -0700</pubDate>
       
-      <guid>http://bwall.github.io/murdering-dexter/</guid>
+      <guid>https://bwall.github.io/murdering-dexter/</guid>
       <description>
 
 &lt;p&gt;Occasionally, I like to build a vulnerable virtual machine demonstating a recently published vulnerability.  One of the reasons I do this is because such a small section of the industry is exposed to botnet panels, and the easiest way to get acquianted is by pwning them.  It also gives people an opportunity to legally use my exploits without hunting down the source code for the command and control panels themselves.  In this vulnerable virtual machine, you get an opportunity to &amp;ldquo;Murder Dexter&amp;rdquo;, the point of sale malware.&lt;/p&gt;
