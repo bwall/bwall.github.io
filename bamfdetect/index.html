@@ -1,0 +1,318 @@
+
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <title>Using bamfdetect </title>
+  <script src="https://bwall.github.io//bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="https://bwall.github.io//bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-drawer-panel/paper-drawer-panel.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-item/paper-item.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/iron-image/iron-image.html">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+  <style is="custom-style">
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    .nav {
+      border-right: 1px solid #ccc;
+    }
+    
+    paper-scroll-header-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: var(--paper-grey-200, #eee);
+       
+      --paper-scroll-header-panel-full-header: {
+        background-image: url(https://bwall.github.io//images/tracking.png);
+      };
+       
+      --paper-scroll-header-panel-condensed-header: {
+        background-image: url(https://bwall.github.io//images/tracking.png);
+      };
+    }
+    
+    paper-toolbar {
+       
+      height: 256px;
+      background-color: transparent;
+    }
+    .profile{
+      width: 100%;
+      padding-bottom: 20px;
+    }
+    .photo{
+      margin: 20px;
+      display: inline-block;
+      height: 64px; width: 64px;
+      border-radius: 50%;
+    }
+    .article{
+      border: 1px solid #bebebe;
+      padding: 16px;
+      margin: 16px;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    .title{
+      font-size: 22px;
+      padding: 8px 0 16px;
+    }
+    .description{
+      font-size: 16px;
+      padding-bottom: 8px;
+    }
+    .author{
+      font-size: 16px;
+      padding-left: 20px;
+      color: white;
+    }
+    .design{
+      font-size: 14px;
+    }
+    .copyright{
+      font-size: 16px;
+    }
+    paper-menu a {
+      text-decoration: none;
+      color: #212121;
+    }
+  </style>
+
+</head>
+<body>
+  <paper-drawer-panel id="drawerPanel" responsive-width="1280px">
+    <div class="nav scroll" drawer>
+    
+      <iron-image class="profile" sizing="cover" src="https://bwall.github.io//images/vaultboy.jpg">
+    
+        
+          <iron-image class="photo" sizing="cover" src="https://bwall.github.io//images/bwall.png"></iron-image>
+        
+          <div class="author">Brian Wallace</div>
+      </iron-image>
+      <paper-menu>
+        <a href="https://bwall.github.io/"><paper-item>
+          <iron-icon icon="home"></iron-icon>　<div class="flex">Home</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+        <a href="https://bwall.github.io//categories/"><paper-item>
+          <iron-icon icon="drafts"></iron-icon>　<div class="flex">Categories</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+        <a href="https://bwall.github.io//tags/"><paper-item>
+          <iron-icon icon="loyalty"></iron-icon>　<div class="flex">Tags</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+      </paper-menu>
+    </div>
+
+    <paper-scroll-header-panel main condenses header-height="256" condensed-header-height="64">
+
+      <paper-toolbar>
+
+        <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+        <div class="bottom title">@botnet_hunter&#39;s blog</div>
+        <div class="flex"></div>
+        
+        
+          <a href="https://twitter.com/botnet_hunter"><paper-icon-button src="https://bwall.github.io//images/twitter-dreamstale71.png"></paper-icon-button></a>
+        
+        
+        
+          <a href="https://www.linkedin.com/in/botnethunter"><paper-icon-button src="https://bwall.github.io//images/linkedin-dreamstale45.png"></paper-icon-button></a>
+        
+        
+          <a href="https://github.com/bwall"><paper-icon-button src="https://bwall.github.io//images/github2-dreamstale35.png"></paper-icon-button></a>
+        
+          <a href="https://bwall.github.io//index.xml"><paper-icon-button src="https://bwall.github.io//images/feed-dreamstale27.png"></paper-icon-button></a>
+      
+      </paper-toolbar>
+
+
+
+<div class="content">
+
+  <div class="article">
+    <div class="title">Using bamfdetect </div>
+    
+      <div class="categories">
+        
+          <a href="https://bwall.github.io//categories/tools/">Tools</a>
+        
+      </div>
+     
+    <div class="description">
+
+<p>When hunting botnets, whether they are custom developed or widely available, it can be helpful to statically extract configurations.  With this ability, an automated workflow can be developed to identify and track botnets at scale.  For this reason, I have developed <a href="https://github.com/bwall/bamfdetect">bamfdetect</a>.</p>
+
+<!-- more -->
+
+<h1 id="bamfdetect:edf56eff04a8abdbcf184973e6c4191b">bamfdetect</h1>
+
+<p>bamfdetect is a tool which is designed to identify malware samples and statically extract their configuration information, such as the domain name of the command and control server.  It is capable of taking in a single file path, or a variety of file paths.  It supports searching inside of directories, archives, etc. Once it identifies files to process, it starts processing through groups of modules.  The modules are as follows.</p>
+
+<ul>
+<li>Preprocessors</li>
+<li>Bot Modules</li>
+<li>Postprocessors</li>
+</ul>
+
+<h2 id="preprocessors:edf56eff04a8abdbcf184973e6c4191b">Preprocessors</h2>
+
+<p>Preprocessors have the ability to modify the file before being processed by the bot modules.  This can be useful if files are somehow packed or obfuscated.  The only currently (at the time of this blog being written) implemented preprocessor is the UPX decompressor.  This identifies if the input file is UPX compressed, then uses the UPX binary installed on the system to decompress it.  This functionality may be removed in the near future.</p>
+
+<p>A planned preprocessor module is a reimplementation of the PHP decoder I have running <a href="https://defense.ballastsecurity.net/decoding/index.php">here</a>.  This would deobfuscate PHP files being processed.</p>
+
+<h2 id="bot-modules:edf56eff04a8abdbcf184973e6c4191b">Bot Modules</h2>
+
+<p>Bot modules are the heart of bamfdetect.  These modules are implemented in two portions, the identifier and the extractor.  The identifiers, all of which are currently Yara signatures, identify whether a file being analyzed is a bot supported by the bot module.  Since bot modules tend to focus on a single bot type or a family of very similar bots, this generally confirms that the module is likely capable of extracting the configuration.</p>
+
+<p>The configuration extraction is then done with Python code.  Configuration extraction can be very strict or very loose, depending on how reliably the configuration is stored in the malware.  Admitedly, in some cases, the configuration extraction methods have been implemented somewhat lazily, so false positives and improperly extracted configurations are possible.</p>
+
+<h2 id="postprocessors:edf56eff04a8abdbcf184973e6c4191b">Postprocessors</h2>
+
+<p>The purpose of postprocessor modules are to run after a file has been identified by at least one module.  The postprocessor modules also have access to the extracted configuration information, so they can be acted upon.  The only currently included postprocessing module calculates hashes on the file that was processed.  I do have a few private postprocessing modules which I will mention shortly.</p>
+
+<h1 id="workflow:edf56eff04a8abdbcf184973e6c4191b">Workflow</h1>
+
+<p>bamfdetect is a wonderful component of my malware tracking workflow.  Clearly, I&rsquo;m not about to give away all my secrets right now, but here is a sample workflow which can be done with bamfdetect.</p>
+
+<p>
+<figure >
+    
+        <img src="/images/bamfworkflow.png" />
+    
+    
+    <figcaption>
+        <h4>Bot tracking workflow</h4>
+        
+    </figcaption>
+    
+</figure>
+</p>
+
+<p>Since bamfdetect has Yara signatures defined inside of it, these Yara signatures can be used in services such as VirusTotal Hunting in order to hunt for relevant samples.  One can very simply download all files that trigger VirusTotal Hunting, and then feed them into bamfdetect.  Files can also be fed in through a variety of other sources.</p>
+
+<p>In order to make use of this, we can create a postprocessing module for bamfdetect which will upload any command and control information to our botnet tracking system.  Since very few people utilize publicly available systems for this, the code below is very generic.</p>
+
+<pre><code>from BAMF_Detect.postprocessors.common import Postprocessor, Postprocessors
+import httplib
+import urllib
+import json
+
+
+def submit_c2(c2_uri, bot_type, source, api_key):
+    try:
+        params = urllib.urlencode({'api_key': api_key, 'uri': c2_uri, 'bot_type': bot_type, 'source': source})
+        headers = {&quot;Content-type&quot;: &quot;application/x-www-form-urlencoded&quot;, &quot;Accept&quot;: &quot;text/plain&quot;}
+        conn = httplib.HTTPSConnection(&quot;c2_tracking.example.com&quot;)
+        conn.request(&quot;POST&quot;, &quot;/upload_c2&quot;, params, headers)
+        response = conn.getresponse()
+        data = response.read()
+        conn.close()
+        return json.loads(data)
+    except KeyboardInterrupt:
+        raise
+    except:
+        pass
+
+
+class SubmitPanel(Postprocessor):
+    def __init__(self):
+        Postprocessor.__init__(
+            self,
+            name=&quot;Hashes&quot;,
+            author=&quot;Brian Wallace (@botnet_hunter)&quot;,
+            date=&quot;March 14th, 2015&quot;,
+            description=&quot;Submits panel to C2 database&quot;,
+            references=&quot;&quot;,
+            version=&quot;1.0.0.0&quot;
+        )
+
+    def _do_processing(self, file_data, config):
+        if &quot;information&quot; in config:
+            configuration = config[&quot;information&quot;]
+            bot_type = config[&quot;type&quot;].lower()
+
+            if &quot;c2_uri&quot; in configuration:
+                # Simple bot setup
+                submit_c2(configuration[&quot;c2_uri&quot;], bot_type, &quot;bamfdetect&quot;, &quot;api-key&quot;)
+            elif &quot;c2s&quot; in configuration:
+                for c in configuration[&quot;c2s&quot;]:
+                    if &quot;c2_uri&quot; in c:
+                        submit_c2(c[&quot;c2_uri&quot;], bot_type, &quot;bamfdetect&quot;, &quot;api-key&quot;)
+
+        return {}, file_data
+
+Postprocessors.add_postprocessor(SubmitPanel())
+</code></pre>
+
+<p>This way, anytime we scan a file, the command and control information will be uploaded to c2_tracking.example.com to be automatically tracked.  This is one of the methods I use to feed my botnet tracking platform.</p>
+
+<p>
+<figure >
+    
+        <img src="/images/tracking.png" />
+    
+    
+    <figcaption>
+        <h4>Bot tracking panel</h4>
+        
+    </figcaption>
+    
+</figure>
+
+(Tracking panel source)[<a href="https://gist.github.com/bwall/aa3bf86bd2f2396d6ef5">https://gist.github.com/bwall/aa3bf86bd2f2396d6ef5</a>]</p>
+</div>
+    <div class="tags">
+      4 Oct 2015
+      
+        
+          <a href="https://bwall.github.io//tags/botnet/">#botnet</a>
+        
+          <a href="https://bwall.github.io//tags/python/">#python</a>
+        
+          <a href="https://bwall.github.io//tags/project/">#project</a>
+        
+          <a href="https://bwall.github.io//tags/utility/">#utility</a>
+        
+       
+    </div>
+    
+  </div>
+
+</div>
+
+<paper-item>
+  
+    <paper-fab disabled icon="chevron-left"></paper-fab>
+  
+    <div class="flex"></div>
+  
+    <a href="https://bwall.github.io/torque-exploit/"><paper-fab icon="chevron-right"></paper-fab></a>
+  
+</paper-item>
+
+      <paper-item>
+        <div class="copyright">© 2015 Copyright Brian Wallace</div>
+        <div class="flex"></div>
+        <div class="design">Design <a href="http://pdevty.github.io/blog/">pdevty</a></div>
+      </paper-item>
+    </paper-scroll-header-panel>
+  </paper-drawer-panel>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+</body>
+</html>
