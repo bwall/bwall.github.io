@@ -6,16 +6,16 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
   <title>Herpes Net 3.0 SQLi</title>
-  <script src="http://localhost:1313//bower_components/webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="http://localhost:1313//bower_components/iron-icons/iron-icons.html">
-  <link rel="import" href="http://localhost:1313//bower_components/paper-drawer-panel/paper-drawer-panel.html">
-  <link rel="import" href="http://localhost:1313//bower_components/paper-icon-button/paper-icon-button.html">
-  <link rel="import" href="http://localhost:1313//bower_components/paper-toolbar/paper-toolbar.html">
-  <link rel="import" href="http://localhost:1313//bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
-  <link rel="import" href="http://localhost:1313//bower_components/paper-fab/paper-fab.html">
-  <link rel="import" href="http://localhost:1313//bower_components/paper-item/paper-item.html">
-  <link rel="import" href="http://localhost:1313//bower_components/paper-menu/paper-menu.html">
-  <link rel="import" href="http://localhost:1313//bower_components/iron-image/iron-image.html">
+  <script src="http://bwall.github.io//bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="http://bwall.github.io//bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="http://bwall.github.io//bower_components/paper-drawer-panel/paper-drawer-panel.html">
+  <link rel="import" href="http://bwall.github.io//bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="http://bwall.github.io//bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="http://bwall.github.io//bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+  <link rel="import" href="http://bwall.github.io//bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="http://bwall.github.io//bower_components/paper-item/paper-item.html">
+  <link rel="import" href="http://bwall.github.io//bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="http://bwall.github.io//bower_components/iron-image/iron-image.html">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
   <style is="custom-style">
     body {
@@ -34,11 +34,11 @@
       background-color: var(--paper-grey-200, #eee);
        
       --paper-scroll-header-panel-full-header: {
-        background-image: url(http://localhost:1313//images/tracking.png);
+        background-image: url(http://bwall.github.io//images/tracking.png);
       };
        
       --paper-scroll-header-panel-condensed-header: {
-        background-image: url(http://localhost:1313//images/tracking.png);
+        background-image: url(http://bwall.github.io//images/tracking.png);
       };
     }
     
@@ -94,23 +94,23 @@
   <paper-drawer-panel id="drawerPanel" responsive-width="1280px">
     <div class="nav scroll" drawer>
     
-      <iron-image class="profile" sizing="cover" src="http://localhost:1313//images/vaultboy.jpg">
+      <iron-image class="profile" sizing="cover" src="http://bwall.github.io//images/vaultboy.jpg">
     
         
-          <iron-image class="photo" sizing="cover" src="http://localhost:1313//images/bwall.png"></iron-image>
+          <iron-image class="photo" sizing="cover" src="http://bwall.github.io//images/bwall.png"></iron-image>
         
           <div class="author">Brian Wallace</div>
       </iron-image>
       <paper-menu>
-        <a href="http://localhost:1313/"><paper-item>
+        <a href="http://bwall.github.io/"><paper-item>
           <iron-icon icon="home"></iron-icon>　<div class="flex">Home</div>
           <iron-icon icon="chevron-right"></iron-icon>
         </paper-item></a>
-        <a href="http://localhost:1313//categories/"><paper-item>
+        <a href="http://bwall.github.io//categories/"><paper-item>
           <iron-icon icon="drafts"></iron-icon>　<div class="flex">Categories</div>
           <iron-icon icon="chevron-right"></iron-icon>
         </paper-item></a>
-        <a href="http://localhost:1313//tags/"><paper-item>
+        <a href="http://bwall.github.io//tags/"><paper-item>
           <iron-icon icon="loyalty"></iron-icon>　<div class="flex">Tags</div>
           <iron-icon icon="chevron-right"></iron-icon>
         </paper-item></a>
@@ -126,16 +126,16 @@
         <div class="flex"></div>
         
         
-          <a href="https://twitter.com/botnet_hunter"><paper-icon-button src="http://localhost:1313//images/twitter-dreamstale71.png"></paper-icon-button></a>
+          <a href="https://twitter.com/botnet_hunter"><paper-icon-button src="http://bwall.github.io//images/twitter-dreamstale71.png"></paper-icon-button></a>
         
         
         
-          <a href="https://www.linkedin.com/in/botnethunter"><paper-icon-button src="http://localhost:1313//images/linkedin-dreamstale45.png"></paper-icon-button></a>
+          <a href="https://www.linkedin.com/in/botnethunter"><paper-icon-button src="http://bwall.github.io//images/linkedin-dreamstale45.png"></paper-icon-button></a>
         
         
-          <a href="https://github.com/bwall"><paper-icon-button src="http://localhost:1313//images/github2-dreamstale35.png"></paper-icon-button></a>
+          <a href="https://github.com/bwall"><paper-icon-button src="http://bwall.github.io//images/github2-dreamstale35.png"></paper-icon-button></a>
         
-          <a href="http://localhost:1313//index.xml"><paper-icon-button src="http://localhost:1313//images/feed-dreamstale27.png"></paper-icon-button></a>
+          <a href="http://bwall.github.io//index.xml"><paper-icon-button src="http://bwall.github.io//images/feed-dreamstale27.png"></paper-icon-button></a>
       
       </paper-toolbar>
 
@@ -148,7 +148,7 @@
     
       <div class="categories">
         
-          <a href="http://localhost:1313//categories/botnets/">Botnets</a>
+          <a href="http://bwall.github.io//categories/botnets/">Botnets</a>
         
       </div>
      
@@ -201,15 +201,15 @@
       9 Mar 2014
       
         
-          <a href="http://localhost:1313//tags/botnet/">#botnet</a>
+          <a href="http://bwall.github.io//tags/botnet/">#botnet</a>
         
-          <a href="http://localhost:1313//tags/herpesnet/">#herpesnet</a>
+          <a href="http://bwall.github.io//tags/herpesnet/">#herpesnet</a>
         
-          <a href="http://localhost:1313//tags/exploit/">#exploit</a>
+          <a href="http://bwall.github.io//tags/exploit/">#exploit</a>
         
-          <a href="http://localhost:1313//tags/vulnerability/">#vulnerability</a>
+          <a href="http://bwall.github.io//tags/vulnerability/">#vulnerability</a>
         
-          <a href="http://localhost:1313//tags/sqli/">#sqli</a>
+          <a href="http://bwall.github.io//tags/sqli/">#sqli</a>
         
        
     </div>
@@ -220,11 +220,11 @@
 
 <paper-item>
   
-    <a href="http://localhost:1313/rsac-2014-botnet-vulnerabilities/"><paper-fab icon="chevron-left"><a></a></paper-fab></a>
+    <a href="http://bwall.github.io/murdering-dexter/"><paper-fab icon="chevron-left"><a></a></paper-fab></a>
   
     <div class="flex"></div>
   
-    <a href="http://localhost:1313/multilocker-backdoor/"><paper-fab icon="chevron-right"></paper-fab></a>
+    <a href="http://bwall.github.io/multilocker-backdoor/"><paper-fab icon="chevron-right"></paper-fab></a>
   
 </paper-item>
 
