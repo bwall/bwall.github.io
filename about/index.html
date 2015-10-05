@@ -1,0 +1,123 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> &mdash; </title>
+    
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+    <link rel="apple-touch-icon" href="/images/"/>
+    <link href="http://localhost:1313//index.xml" rel="alternate" type="application/rss+xml" title="" />
+    <meta name="title" content="http://localhost:1313/">
+    <link rel="canonical" href="http://localhost:1313/">
+    <meta property="og:title" content=""/>
+    <meta property="og:url" content="http://localhost:1313/"/>
+    <meta property="og:image" content="http://localhost:1313//images/"/>   
+    <meta property="og:site_name" content="">
+</head>
+<body>
+    
+<section class="site-nav">
+    <header>
+        <nav id="navigation">
+            <a class="brand" href="/">
+                <img src="/images/" alt="Inc">
+            </a>
+            <a href="/" class="home">Blog</a>
+            
+            
+        </nav>
+        <nav class="tagline">
+            
+            
+        </nav>
+    </header>
+</section>
+
+
+
+<article>
+
+    <div class="container">
+        <header>
+            <div class="meta">
+                By <address><a rel="author" href="" title="" target="_blank"></a></address> &mdash;
+                <time pubdate datetime="2014-06-02" title="2014-06-02">June 02, 2014</time>
+            </div>
+            <h1 class="title">TORQUE Exploitation Explained</h1>
+            <h2 class="subtitle"></h2>
+        </header>
+
+        <section>
+            
+
+<p>The purpose of this post is to explain the TORQUE vulnerability I recently created a proof of concept for. Since the proof of concept was just a simple stub, I feel the mechanics behind the exploit should be described as well.</p>
+
+<h2 id="torque:6083a88ee3411b0d17ce02d738f69d47">Torque</h2>
+
+<p>To be completely honest, I have never used TORQUE before attempting to exploit it.  I was looking for a vague CVE to proof of concept, and this one did not appear to obscure <a href="http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-0749">CVE-2014-0749</a>.  Since this application is open source, I was able to download and review the source code for this.  I was also able to see the <a href="https://github.com/adaptivecomputing/torque/commit/3ed749263abe3d69fa3626d142a5789dcb5a5684">pull request</a> for resolving this issue (easy mode, amirite?).</p>
+
+<p>The line of code we are looking to exploit is <a href="https://github.com/adaptivecomputing/torque/blob/master/src/lib/Libdis/disrsi_.c#L100">here</a>.  Libdis defines the protocol used for network communication, and we are exploiting a weakness in its core ability to function.  I&rsquo;ll explain the relevant parts of this protocol.  Essentially, when reading in data, this protocol parses arbitrarily large data by first reading a digit.  This digit dictates how many digits will define how large the data will be.  Since the buffer for storing this data is only 64 bytes on an x64 machine, any value larger than two here will eventually lead in an overflow.  After it reads this first character, it then calls itself again to parse the digits for the size.  After parsing n digits, it now has its count for its final call to disrsi_.  In this call, we need to have it start with a digit again in order to reach the code we are exploiting.</p>
+
+<p>The pull request mentioned before adds a check at the beginning of the function to check the size of data to be read in.  Since the check actually happens after information is read from the socket pre-pull request, we can read in as much as 999999999 bytes (actually quite a bit less due to section restrictions).  Looking at the code, this issue may not be apparent, as where is the memcpy we are supposed to be exploiting?  Its in the <a href="https://github.com/adaptivecomputing/torque/blob/85b58c5dd0abafe8e36450529e9a3df4e877039e/src/lib/Libifl/tcp_dis.c#L438">tcp_gets</a> at line <a href="https://github.com/adaptivecomputing/torque/blob/85b58c5dd0abafe8e36450529e9a3df4e877039e/src/lib/Libifl/tcp_dis.c#L467">467</a>.</p>
+
+<p>So essentially, to exploit this, we need to send three numbers.  The first is a single digit which defines the number of digits in the next number, and the second defines the size of the data we will overflow with.  Then another digit to continue to hit the tcp_gets function we need to exploit.  We can simply connect with a TCP socket, send &ldquo;39991&rdquo; then 999 A&rsquo;s to cause the crash.</p>
+
+<p><a href="http://www.exploit-db.com/exploits/33554/">Exploit Stub</a></p>
+
+            
+
+        </section>
+
+        <footer>
+            <address>
+               
+                <p>Written by <strong><a rel="author" href="https://twitter.com/" title="" target="_blank"></a></strong><br>
+                <span class="muted"></span>
+                </p>
+            </address>
+
+        </footer>
+
+        
+    </div>
+</article>
+
+<footer class="site-footer">
+    <div class="container">
+        <nav>
+            <a href=""></a> &middot;
+            <a href="/">Blog</a> &middot;
+            
+            
+        </nav>
+        
+        <nav class="social">
+            
+            
+                
+            <a href="/index.xml" title="RSS Feed">
+                <i class="icon icon-rss black"></i>
+            </a>
+        </nav>
+    </div>
+</footer>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+<script type="text/javascript" src="/js/main.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+  
+
+</body>
+</html>
+
