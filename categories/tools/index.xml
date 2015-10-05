@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on @botnet_hunter&#39;s blog</title>
+    <link>http://bwall.github.io/categories/tools/</link>
+    <description>Recent content in Tools on @botnet_hunter&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2015 Copyright Brian Wallace</copyright>
+    <lastBuildDate>Fri, 18 Apr 2014 10:19:07 -0700</lastBuildDate>
+    <atom:link href="http://bwall.github.io/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Extract Hosts</title>
+      <link>http://bwall.github.io/extract-hosts/</link>
+      <pubDate>Fri, 18 Apr 2014 10:19:07 -0700</pubDate>
+      
+      <guid>http://bwall.github.io/extract-hosts/</guid>
+      <description>
+
+&lt;p&gt;Recently, I have been trying to focus more on creating small but useful utilities.  The first of these tools to be posted publicly is &lt;a href=&#34;https://github.com/bwall/ExtractHosts&#34;&gt;Extract Hosts&lt;/a&gt;.  The purpose of this utility is to search for domain names and IP addresses in the supplied input.  The following is information posted to the readme on the project page.  You can download the 1.1.0 release of Extract Hosts &lt;a href=&#34;https://github.com/bwall/ExtractHosts/archive/v1.1.0.zip&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1 id=&#34;extracthosts:8154605aecfea6ca754b3151f752e9f0&#34;&gt;ExtractHosts&lt;/h1&gt;
+
+&lt;p&gt;Extracts hosts (IP/Hostnames) from files.  Hosts can be extracted from text files, PE, etc.  Any file that keeps the
+host in plaintext without obscuring it, this should extract it.&lt;/p&gt;
+
+&lt;p&gt;The name came about when polling random people on the street about the idea, and they responded, &amp;ldquo;eh?&amp;rdquo;.  With this installed,
+all you need to type is &amp;lsquo;eh&amp;rsquo; to start pulling hosts from input.&lt;/p&gt;
+
+&lt;h1 id=&#34;installation:8154605aecfea6ca754b3151f752e9f0&#34;&gt;Installation&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/bwall/ExtractHosts.git
+cd ExtractHosts
+sudo python setup.py install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;examples:8154605aecfea6ca754b3151f752e9f0&#34;&gt;Examples&lt;/h1&gt;
+
+&lt;p&gt;The following are just some example usages&lt;/p&gt;
+
+&lt;h2 id=&#34;help:8154605aecfea6ca754b3151f752e9f0&#34;&gt;help&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;bwall@research:~$ eh -h
+usage: /usr/local/bin/eh [-h] [-v] [-r] [-f] [-d] [-T] [path [path ...]]
+
+Identifies and extracts domains and IPs from files
+
+positional arguments:
+  path                  Paths to files or directories to scan (if not
+                        supplied, stdin is the file being read)
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -v, --version         show program&#39;s version number and exit
+  -r, --recursive       Scan paths recursively
+  -f, --show-files      Show file names along with results
+  -d, --hide-duplicates
+                        Hide duplicate results (hides per file when show-files
+                        is enabled)
+  -s, --strict          Stricter processing of domains
+  -T, --test            Run some quick self tests
+
+/usr/local/bin/eh v1.1.0 by Brian Wallace (@botnet_hunter)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;wget:8154605aecfea6ca754b3151f752e9f0&#34;&gt;wget&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;bwall@research:~$ wget http://bwall.github.io/ -qO- | eh -d
+bwall.github.io
+twitter.com
+gmail.com
+github.com
+README.md
+ajax.googleapis.com
+crypto-js.googlecode.com
+google-analytics.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;malware:8154605aecfea6ca754b3151f752e9f0&#34;&gt;malware&lt;/h2&gt;
+
+&lt;p&gt;The 0686429b86844d9d1a14a159a0263b9bfcea4fd247c77537aa0278c9c5cb4ac3 file is a sample of the POS malware, Dexter, created for demo purposes.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bwall@research:~$ eh 0686429b86844d9d1a14a159a0263b9bfcea4fd247c77537aa0278c9c5cb4ac3
+houseofcarders.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;file-system-recursion:8154605aecfea6ca754b3151f752e9f0&#34;&gt;File system recursion&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;bwall@research:~$ eh -drf Downloads/PEStudio/
+/home/bwall/Downloads/PEStudio/PeStudioFunctionsDeprecated.xml  www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioFunctionsDeprecated.xml  msdn.microsoft.com
+/home/bwall/Downloads/PEStudio/PeStudioBlackListFunctions.xml   www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioEvasions.xml www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioIndicators.xml   www.winitor.com
+/home/bwall/Downloads/PEStudio/ChangeLog.txt    winitor.com
+/home/bwall/Downloads/PEStudio/ChangeLog.txt    www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioThresholds.xml   www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioWhiteListSections.xml    www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioBlackListLibraries.xml   www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioOrdinals.xml www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioVirusTotal.xml   www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioCodePages.xml    www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioCodePages.xml    msdn.microsoft.com
+/home/bwall/Downloads/PEStudio/PeStudioWhiteListLibraries.xml   www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioFeatures.xml www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudio.exe 6.0.0.0
+/home/bwall/Downloads/PEStudio/PeStudioSettings.xml www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioBlackListStrings.xml www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioBlackListStrings.xml internetmailru.cdnmail.ru
+/home/bwall/Downloads/PEStudio/PeStudioBlackListStrings.xml sputnik.mail.ru
+/home/bwall/Downloads/PEStudio/PeStudioBlackListStrings.xml mail.ru
+/home/bwall/Downloads/PEStudio/PeStudioBlackListStrings.xml Command.com
+/home/bwall/Downloads/PEStudio/PeStudioBlackListStrings.xml 127.0.0.1
+/home/bwall/Downloads/PEStudio/PeStudioBlackListStrings.xml 2.0.0.1
+/home/bwall/Downloads/PEStudio/PeStudioBlackListStrings.xml www.memtest86.com
+/home/bwall/Downloads/PEStudio/PeStudioBlackListStrings.xml boxedapp.com
+/home/bwall/Downloads/PEStudio/PeStudioBlackListStrings.xml PAYPAL.COM
+/home/bwall/Downloads/PEStudio/PeStudioBlackListStrings.xml start.spoon.net
+/home/bwall/Downloads/PEStudio/PeStudioFunctionsUndocumented.xml    www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioWellKnownResources.xml   www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioFunctionsMapping.xml www.winitor.com
+/home/bwall/Downloads/PEStudio/PeParser.dll 776::06
+/home/bwall/Downloads/PEStudio/PeParser.dll ::
+/home/bwall/Downloads/PEStudio/PeParser.dll 3::
+/home/bwall/Downloads/PEStudio/PeStudioTranslations.xml www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioBlackListLanguages.xml   www.winitor.com
+/home/bwall/Downloads/PEStudio/PeStudioBlackListLanguages.xml   msdn.microsoft.com
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;change-log:8154605aecfea6ca754b3151f752e9f0&#34;&gt;Change log&lt;/h1&gt;
+
+&lt;h2 id=&#34;version-1-1-0:8154605aecfea6ca754b3151f752e9f0&#34;&gt;Version 1.1.0&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Files are no longer loaded completely into RAM so larger files can be processed (performance increase noticed)&lt;/li&gt;
+&lt;li&gt;Strict mode added, where domains are only considered if all lower case&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h1 id=&#34;todo:8154605aecfea6ca754b3151f752e9f0&#34;&gt;TODO&lt;/h1&gt;
+
+&lt;ul&gt;
+&lt;li&gt;IPv6 regex needs to be shorted and heavily tested&lt;/li&gt;
+&lt;li&gt;Heavier testing&lt;/li&gt;
+&lt;li&gt;Improve performance&lt;/li&gt;
+&lt;li&gt;Multiple core processing support&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

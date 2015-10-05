@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Torque on @botnet_hunter&#39;s blog</title>
+    <link>http://bwall.github.io/tags/torque/</link>
+    <description>Recent content in Torque on @botnet_hunter&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2015 Copyright Brian Wallace</copyright>
+    <lastBuildDate>Mon, 02 Jun 2014 16:19:07 -0700</lastBuildDate>
+    <atom:link href="http://bwall.github.io/tags/torque/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>TORQUE Exploitation Explained</title>
+      <link>http://bwall.github.io/torque-exploit/</link>
+      <pubDate>Mon, 02 Jun 2014 16:19:07 -0700</pubDate>
+      
+      <guid>http://bwall.github.io/torque-exploit/</guid>
+      <description>
+
+&lt;p&gt;The purpose of this post is to explain the TORQUE vulnerability I recently created a proof of concept for. Since the proof of concept was just a simple stub, I feel the mechanics behind the exploit should be described as well.&lt;/p&gt;
+
+&lt;h2 id=&#34;torque:235d1d0b5bce311605860146e8d37ef9&#34;&gt;Torque&lt;/h2&gt;
+
+&lt;p&gt;To be completely honest, I have never used TORQUE before attempting to exploit it.  I was looking for a vague CVE to proof of concept, and this one did not appear to obscure &lt;a href=&#34;http://web.nvd.nist.gov/view/vuln/detail?vulnId=CVE-2014-0749&#34;&gt;CVE-2014-0749&lt;/a&gt;.  Since this application is open source, I was able to download and review the source code for this.  I was also able to see the &lt;a href=&#34;https://github.com/adaptivecomputing/torque/commit/3ed749263abe3d69fa3626d142a5789dcb5a5684&#34;&gt;pull request&lt;/a&gt; for resolving this issue (easy mode, amirite?).&lt;/p&gt;
+
+&lt;p&gt;The line of code we are looking to exploit is &lt;a href=&#34;https://github.com/adaptivecomputing/torque/blob/master/src/lib/Libdis/disrsi_.c#L100&#34;&gt;here&lt;/a&gt;.  Libdis defines the protocol used for network communication, and we are exploiting a weakness in its core ability to function.  I&amp;rsquo;ll explain the relevant parts of this protocol.  Essentially, when reading in data, this protocol parses arbitrarily large data by first reading a digit.  This digit dictates how many digits will define how large the data will be.  Since the buffer for storing this data is only 64 bytes on an x64 machine, any value larger than two here will eventually lead in an overflow.  After it reads this first character, it then calls itself again to parse the digits for the size.  After parsing n digits, it now has its count for its final call to disrsi_.  In this call, we need to have it start with a digit again in order to reach the code we are exploiting.&lt;/p&gt;
+
+&lt;p&gt;The pull request mentioned before adds a check at the beginning of the function to check the size of data to be read in.  Since the check actually happens after information is read from the socket pre-pull request, we can read in as much as 999999999 bytes (actually quite a bit less due to section restrictions).  Looking at the code, this issue may not be apparent, as where is the memcpy we are supposed to be exploiting?  Its in the &lt;a href=&#34;https://github.com/adaptivecomputing/torque/blob/85b58c5dd0abafe8e36450529e9a3df4e877039e/src/lib/Libifl/tcp_dis.c#L438&#34;&gt;tcp_gets&lt;/a&gt; at line &lt;a href=&#34;https://github.com/adaptivecomputing/torque/blob/85b58c5dd0abafe8e36450529e9a3df4e877039e/src/lib/Libifl/tcp_dis.c#L467&#34;&gt;467&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;So essentially, to exploit this, we need to send three numbers.  The first is a single digit which defines the number of digits in the next number, and the second defines the size of the data we will overflow with.  Then another digit to continue to hit the tcp_gets function we need to exploit.  We can simply connect with a TCP socket, send &amp;ldquo;39991&amp;rdquo; then 999 A&amp;rsquo;s to cause the crash.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.exploit-db.com/exploits/33554/&#34;&gt;Exploit Stub&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

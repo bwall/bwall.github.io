@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dexter on @botnet_hunter&#39;s blog</title>
+    <link>http://bwall.github.io/tags/dexter/</link>
+    <description>Recent content in Dexter on @botnet_hunter&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2015 Copyright Brian Wallace</copyright>
+    <lastBuildDate>Sun, 16 Mar 2014 10:19:07 -0700</lastBuildDate>
+    <atom:link href="http://bwall.github.io/tags/dexter/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Murdering Dexter</title>
+      <link>http://bwall.github.io/murdering-dexter/</link>
+      <pubDate>Sun, 16 Mar 2014 10:19:07 -0700</pubDate>
+      
+      <guid>http://bwall.github.io/murdering-dexter/</guid>
+      <description>
+
+&lt;p&gt;Occasionally, I like to build a vulnerable virtual machine demonstating a recently published vulnerability.  One of the reasons I do this is because such a small section of the industry is exposed to botnet panels, and the easiest way to get acquianted is by pwning them.  It also gives people an opportunity to legally use my exploits without hunting down the source code for the command and control panels themselves.  In this vulnerable virtual machine, you get an opportunity to &amp;ldquo;Murder Dexter&amp;rdquo;, the point of sale malware.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1 id=&#34;murdering-dexter:0635b995738305bfac88ff5fd882f446&#34;&gt;Murdering Dexter&lt;/h1&gt;
+
+&lt;p&gt;Much like my other vulnerable virtual machines, there are no supplied credentials.  The virtual machine itself uses DHCP to get an IP address, and while it does not need Internet access itself, you may wish to reference the Internet for some portions.  If you need to change something in the virtual machine in order to use it, you should be able to edit the shadow file in a live cd without hindering the challenge.&lt;/p&gt;
+
+&lt;h1 id=&#34;download:0635b995738305bfac88ff5fd882f446&#34;&gt;Download&lt;/h1&gt;
+
+&lt;p&gt;Download locations can be found &lt;a href=&#34;http://vulnhub.com/entry/bot-challenges-dexter,59/&#34;&gt;here&lt;/a&gt; as well as other information.&lt;/p&gt;
+
+&lt;h1 id=&#34;credits:0635b995738305bfac88ff5fd882f446&#34;&gt;Credits&lt;/h1&gt;
+
+&lt;p&gt;Thanks to everyone who beta tested this virtual machine!&lt;/p&gt;
+
+&lt;h2 id=&#34;testers:0635b995738305bfac88ff5fd882f446&#34;&gt;Testers&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Andrew Morris (@TheAndrewBalls)&lt;/li&gt;
+&lt;li&gt;Bas (@barrebas)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;developer:0635b995738305bfac88ff5fd882f446&#34;&gt;Developer&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Brian Wallace (@botnet_hunter)&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
