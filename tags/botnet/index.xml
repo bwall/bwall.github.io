@@ -7,8 +7,139 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2015 Copyright Brian Wallace</copyright>
-    <lastBuildDate>Sun, 16 Mar 2014 10:19:07 -0700</lastBuildDate>
+    <lastBuildDate>Sun, 04 Oct 2015 17:59:07 -0700</lastBuildDate>
     <atom:link href="https://bwall.github.io/tags/botnet/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Using bamfdetect </title>
+      <link>https://bwall.github.io/bamfdetect/</link>
+      <pubDate>Sun, 04 Oct 2015 17:59:07 -0700</pubDate>
+      
+      <guid>https://bwall.github.io/bamfdetect/</guid>
+      <description>
+
+&lt;p&gt;When hunting botnets, whether they are custom developed or widely available, it can be helpful to statically extract configurations.  With this ability, an automated workflow can be developed to identify and track botnets at scale.  For this reason, I have developed &lt;a href=&#34;https://github.com/bwall/bamfdetect&#34;&gt;bamfdetect&lt;/a&gt;.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1 id=&#34;bamfdetect:edf56eff04a8abdbcf184973e6c4191b&#34;&gt;bamfdetect&lt;/h1&gt;
+
+&lt;p&gt;bamfdetect is a tool which is designed to identify malware samples and statically extract their configuration information, such as the domain name of the command and control server.  It is capable of taking in a single file path, or a variety of file paths.  It supports searching inside of directories, archives, etc. Once it identifies files to process, it starts processing through groups of modules.  The modules are as follows.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Preprocessors&lt;/li&gt;
+&lt;li&gt;Bot Modules&lt;/li&gt;
+&lt;li&gt;Postprocessors&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;preprocessors:edf56eff04a8abdbcf184973e6c4191b&#34;&gt;Preprocessors&lt;/h2&gt;
+
+&lt;p&gt;Preprocessors have the ability to modify the file before being processed by the bot modules.  This can be useful if files are somehow packed or obfuscated.  The only currently (at the time of this blog being written) implemented preprocessor is the UPX decompressor.  This identifies if the input file is UPX compressed, then uses the UPX binary installed on the system to decompress it.  This functionality may be removed in the near future.&lt;/p&gt;
+
+&lt;p&gt;A planned preprocessor module is a reimplementation of the PHP decoder I have running &lt;a href=&#34;https://defense.ballastsecurity.net/decoding/index.php&#34;&gt;here&lt;/a&gt;.  This would deobfuscate PHP files being processed.&lt;/p&gt;
+
+&lt;h2 id=&#34;bot-modules:edf56eff04a8abdbcf184973e6c4191b&#34;&gt;Bot Modules&lt;/h2&gt;
+
+&lt;p&gt;Bot modules are the heart of bamfdetect.  These modules are implemented in two portions, the identifier and the extractor.  The identifiers, all of which are currently Yara signatures, identify whether a file being analyzed is a bot supported by the bot module.  Since bot modules tend to focus on a single bot type or a family of very similar bots, this generally confirms that the module is likely capable of extracting the configuration.&lt;/p&gt;
+
+&lt;p&gt;The configuration extraction is then done with Python code.  Configuration extraction can be very strict or very loose, depending on how reliably the configuration is stored in the malware.  Admitedly, in some cases, the configuration extraction methods have been implemented somewhat lazily, so false positives and improperly extracted configurations are possible.&lt;/p&gt;
+
+&lt;h2 id=&#34;postprocessors:edf56eff04a8abdbcf184973e6c4191b&#34;&gt;Postprocessors&lt;/h2&gt;
+
+&lt;p&gt;The purpose of postprocessor modules are to run after a file has been identified by at least one module.  The postprocessor modules also have access to the extracted configuration information, so they can be acted upon.  The only currently included postprocessing module calculates hashes on the file that was processed.  I do have a few private postprocessing modules which I will mention shortly.&lt;/p&gt;
+
+&lt;h1 id=&#34;workflow:edf56eff04a8abdbcf184973e6c4191b&#34;&gt;Workflow&lt;/h1&gt;
+
+&lt;p&gt;bamfdetect is a wonderful component of my malware tracking workflow.  Clearly, I&amp;rsquo;m not about to give away all my secrets right now, but here is a sample workflow which can be done with bamfdetect.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://bwall.github.io/images/bamfworkflow.png&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;h4&gt;Bot tracking workflow&lt;/h4&gt;
+        
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Since bamfdetect has Yara signatures defined inside of it, these Yara signatures can be used in services such as VirusTotal Hunting in order to hunt for relevant samples.  One can very simply download all files that trigger VirusTotal Hunting, and then feed them into bamfdetect.  Files can also be fed in through a variety of other sources.&lt;/p&gt;
+
+&lt;p&gt;In order to make use of this, we can create a postprocessing module for bamfdetect which will upload any command and control information to our botnet tracking system.  Since very few people utilize publicly available systems for this, the code below is very generic.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;from BAMF_Detect.postprocessors.common import Postprocessor, Postprocessors
+import httplib
+import urllib
+import json
+
+
+def submit_c2(c2_uri, bot_type, source, api_key):
+    try:
+        params = urllib.urlencode({&#39;api_key&#39;: api_key, &#39;uri&#39;: c2_uri, &#39;bot_type&#39;: bot_type, &#39;source&#39;: source})
+        headers = {&amp;quot;Content-type&amp;quot;: &amp;quot;application/x-www-form-urlencoded&amp;quot;, &amp;quot;Accept&amp;quot;: &amp;quot;text/plain&amp;quot;}
+        conn = httplib.HTTPSConnection(&amp;quot;c2_tracking.example.com&amp;quot;)
+        conn.request(&amp;quot;POST&amp;quot;, &amp;quot;/upload_c2&amp;quot;, params, headers)
+        response = conn.getresponse()
+        data = response.read()
+        conn.close()
+        return json.loads(data)
+    except KeyboardInterrupt:
+        raise
+    except:
+        pass
+
+
+class SubmitPanel(Postprocessor):
+    def __init__(self):
+        Postprocessor.__init__(
+            self,
+            name=&amp;quot;Hashes&amp;quot;,
+            author=&amp;quot;Brian Wallace (@botnet_hunter)&amp;quot;,
+            date=&amp;quot;March 14th, 2015&amp;quot;,
+            description=&amp;quot;Submits panel to C2 database&amp;quot;,
+            references=&amp;quot;&amp;quot;,
+            version=&amp;quot;1.0.0.0&amp;quot;
+        )
+
+    def _do_processing(self, file_data, config):
+        if &amp;quot;information&amp;quot; in config:
+            configuration = config[&amp;quot;information&amp;quot;]
+            bot_type = config[&amp;quot;type&amp;quot;].lower()
+
+            if &amp;quot;c2_uri&amp;quot; in configuration:
+                # Simple bot setup
+                submit_c2(configuration[&amp;quot;c2_uri&amp;quot;], bot_type, &amp;quot;bamfdetect&amp;quot;, &amp;quot;api-key&amp;quot;)
+            elif &amp;quot;c2s&amp;quot; in configuration:
+                for c in configuration[&amp;quot;c2s&amp;quot;]:
+                    if &amp;quot;c2_uri&amp;quot; in c:
+                        submit_c2(c[&amp;quot;c2_uri&amp;quot;], bot_type, &amp;quot;bamfdetect&amp;quot;, &amp;quot;api-key&amp;quot;)
+
+        return {}, file_data
+
+Postprocessors.add_postprocessor(SubmitPanel())
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This way, anytime we scan a file, the command and control information will be uploaded to c2_tracking.example.com to be automatically tracked.  This is one of the methods I use to feed my botnet tracking platform.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;https://bwall.github.io/images/tracking.png&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;h4&gt;Bot tracking panel&lt;/h4&gt;
+        
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+
+(Tracking panel source)[&lt;a href=&#34;https://gist.github.com/bwall/aa3bf86bd2f2396d6ef5&#34;&gt;https://gist.github.com/bwall/aa3bf86bd2f2396d6ef5&lt;/a&gt;]&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Murdering Dexter</title>
