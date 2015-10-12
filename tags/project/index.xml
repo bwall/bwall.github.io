@@ -180,6 +180,9 @@ if __name__ == &amp;quot;__main__&amp;quot;:
     thread_pool.close()
     thread_pool.join()
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://i.imgur.com/xMKiC7W.png&#34; alt=&#34;Network shellcode detection PoC working&#34; /&gt;
+&lt;/p&gt;
 </description>
     </item>
     
