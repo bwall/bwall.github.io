@@ -158,6 +158,10 @@
 
 <!-- more -->
 
+<h1 id="update:84e7421e24ba41f3bed9835a932084c9"><em>UPDATE</em></h1>
+
+<p>A Github repository has been created for this project: <a href="https://github.com/bwall/markovobfuscate">markovobfuscate</a></p>
+
 <h1 id="markov-chains-as-a-keyed-obfuscation-method:84e7421e24ba41f3bed9835a932084c9">Markov Chains as a Keyed Obfuscation Method</h1>
 
 <p>This is a project that has been sitting in my private git repository for a long while, and after I was recently reminded of it, I&rsquo;ve decided to write it up and do an initial release.  The premise of the project is to use Markov chains in order to obfuscate binary information to appear similar to written language.</p>
@@ -217,7 +221,7 @@ print current_word + &quot; &quot; + sorted_list_of_words_following_apple[byte_t
 
 <h2 id="proof-of-concept:84e7421e24ba41f3bed9835a932084c9">Proof of Concept</h2>
 
-<p>As you may have imagined, I have built a proof of concept for this.  It is in pure Python 2, and should be quite simple to integrate into Python based projects.  If you working in a language other than Python&hellip;good luck.  But seriously, hopefully you can read enough Python to reimplement based on the supplied code and this blog post.  Additionally, if you implement this in another programming language or at all, please feel to let me know on <a href="https://twitter.com/botnet_hunter">Twitter</a> or something.</p>
+<p>As you may have imagined, I have built a proof of concept for this.  It is in pure Python 2, and should be quite simple to integrate into Python based projects.  If you working in a language other than Python&hellip;good luck!  But seriously, hopefully you can read enough Python to reimplement based on the supplied code and this blog post.  Additionally, if you implement this in another programming language or at all, please feel to let me know on <a href="https://twitter.com/botnet_hunter">Twitter</a> or something.</p>
 
 <p>Here&rsquo;s an example:</p>
 
@@ -571,6 +575,12 @@ TtCqSwGl9t9JEoFqvtW+znZ9TqyLiOMw7TGEUI+88VAqW0qmXnwPcfo=
 
 <p><img src="/images/mindblown.gif" alt="Mind-fucking-blown" />
 </p>
+
+<h2 id="addendum:84e7421e24ba41f3bed9835a932084c9">Addendum</h2>
+
+<p>Per request of <a href="https://twitter.com/RKornmeyer">@RKornmeyer</a>, I trained a Markov model based off of Taylor Swift lyrics.  Here are the results:</p>
+
+<script src="https://gist.github.com/bwall/12823e39e4811dbaf872.js"></script>
 </div>
     <div class="tags">
       21 Nov 2015

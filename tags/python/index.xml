@@ -22,6 +22,10 @@
 
 &lt;!-- more --&gt;
 
+&lt;h1 id=&#34;update:84e7421e24ba41f3bed9835a932084c9&#34;&gt;&lt;em&gt;UPDATE&lt;/em&gt;&lt;/h1&gt;
+
+&lt;p&gt;A Github repository has been created for this project: &lt;a href=&#34;https://github.com/bwall/markovobfuscate&#34;&gt;markovobfuscate&lt;/a&gt;&lt;/p&gt;
+
 &lt;h1 id=&#34;markov-chains-as-a-keyed-obfuscation-method:84e7421e24ba41f3bed9835a932084c9&#34;&gt;Markov Chains as a Keyed Obfuscation Method&lt;/h1&gt;
 
 &lt;p&gt;This is a project that has been sitting in my private git repository for a long while, and after I was recently reminded of it, I&amp;rsquo;ve decided to write it up and do an initial release.  The premise of the project is to use Markov chains in order to obfuscate binary information to appear similar to written language.&lt;/p&gt;
@@ -81,7 +85,7 @@ print current_word + &amp;quot; &amp;quot; + sorted_list_of_words_following_appl
 
 &lt;h2 id=&#34;proof-of-concept:84e7421e24ba41f3bed9835a932084c9&#34;&gt;Proof of Concept&lt;/h2&gt;
 
-&lt;p&gt;As you may have imagined, I have built a proof of concept for this.  It is in pure Python 2, and should be quite simple to integrate into Python based projects.  If you working in a language other than Python&amp;hellip;good luck.  But seriously, hopefully you can read enough Python to reimplement based on the supplied code and this blog post.  Additionally, if you implement this in another programming language or at all, please feel to let me know on &lt;a href=&#34;https://twitter.com/botnet_hunter&#34;&gt;Twitter&lt;/a&gt; or something.&lt;/p&gt;
+&lt;p&gt;As you may have imagined, I have built a proof of concept for this.  It is in pure Python 2, and should be quite simple to integrate into Python based projects.  If you working in a language other than Python&amp;hellip;good luck!  But seriously, hopefully you can read enough Python to reimplement based on the supplied code and this blog post.  Additionally, if you implement this in another programming language or at all, please feel to let me know on &lt;a href=&#34;https://twitter.com/botnet_hunter&#34;&gt;Twitter&lt;/a&gt; or something.&lt;/p&gt;
 
 &lt;p&gt;Here&amp;rsquo;s an example:&lt;/p&gt;
 
@@ -435,6 +439,12 @@ TtCqSwGl9t9JEoFqvtW+znZ9TqyLiOMw7TGEUI+88VAqW0qmXnwPcfo=
 
 &lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/mindblown.gif&#34; alt=&#34;Mind-fucking-blown&#34; /&gt;
 &lt;/p&gt;
+
+&lt;h2 id=&#34;addendum:84e7421e24ba41f3bed9835a932084c9&#34;&gt;Addendum&lt;/h2&gt;
+
+&lt;p&gt;Per request of &lt;a href=&#34;https://twitter.com/RKornmeyer&#34;&gt;@RKornmeyer&lt;/a&gt;, I trained a Markov model based off of Taylor Swift lyrics.  Here are the results:&lt;/p&gt;
+
+&lt;script src=&#34;https://gist.github.com/bwall/12823e39e4811dbaf872.js&#34;&gt;&lt;/script&gt;
 </description>
     </item>
     
