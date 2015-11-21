@@ -7,13 +7,135 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>© 2015 Copyright Brian Wallace</copyright>
-    <lastBuildDate>Sat, 21 Nov 2015 15:41:07 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 21 Nov 2015 14:41:07 -0700</lastBuildDate>
     <atom:link href="https://bwall.github.io/tags/project/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>MarkovObfuscation in a tunneling SOCKS Proxy</title>
+      <link>https://bwall.github.io/markovobfuscation-in-a-tunneling-socks-proxy/</link>
+      <pubDate>Sat, 21 Nov 2015 14:41:07 -0700</pubDate>
+      
+      <guid>https://bwall.github.io/markovobfuscation-in-a-tunneling-socks-proxy/</guid>
+      <description>
+
+&lt;p&gt;In a &lt;a href=&#34;https://bwall.github.io/markov-chains-keyed-obfuscation/&#34;&gt;previous blog post&lt;/a&gt;, I detailed a convention I developed in order to use Markov models in order obfuscate data.  In this blog post, I will talk about a script, mtunnel, which acts as both ends of a SOCKS tunneling proxy where the transport between the two ends is obfuscated using MarkovObfuscation.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1 id=&#34;markovobfuscation-in-a-tunneling-socks-proxy:d712b37315982ff405528d510281f1c4&#34;&gt;MarkovObfuscation in a tunneling SOCKS Proxy&lt;/h1&gt;
+
+&lt;p&gt;After I saw folks appeared interested in the MarkovObfuscation blog post, I decided I needed a proof of concept that actually did something.  So I started hacking away&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_ed.gif&#34; alt=&#34;Edward&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;What I ended up with was a Python 2.7 script which created an obfuscated tunnel which could be used by anything that supported SOCKS4/SOCKS4a interfaces.&lt;/p&gt;
+
+&lt;p&gt;The script, &lt;a href=&#34;https://github.com/bwall/markovobfuscate/blob/master/mtunnel.py&#34;&gt;mtunnel.py&lt;/a&gt;, can be found in the &lt;a href=&#34;https://github.com/bwall/markovobfuscate&#34;&gt;MarkovObfuscation Github repository&lt;/a&gt;.  This script needs to be run in two locations, local to your local application, and on a remote server (where you are tunneling out to).  When the local script is run, it provides an obfuscated tunnel to the remote server which provides a SOCKS4 and SOCKS4a interface in order to allow arbitrary TCP connections out to servers on the other end of the proxy.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_diagram.png&#34; alt=&#34;MarkovObfuscation mtunnel diagram&#34; /&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;example-usage:d712b37315982ff405528d510281f1c4&#34;&gt;Example Usage&lt;/h2&gt;
+
+&lt;p&gt;On both our local computer and remote computer, we want to download 98.txt (A Tale of Two Cities) from Project Gutenburg into datasets/98.txt:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir datasets
+wget http://www.gutenberg.org/files/98/98.txt -O datasets/98.txt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can use a different book or dataset, just make sure to change the following lines to match your setup (I will make these command line arguments eventually):&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/bwall/markovobfuscate/blob/master/mtunnel.py#L248-L252&#34;&gt;https://github.com/bwall/markovobfuscate/blob/master/mtunnel.py#L248-L252&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;On our local computer, we start up the local tunnel client to connect to our remote server at 178.62.84.249 by providing a SOCKS proxy interface on local port 9051:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bwall@localcomputer:~/markovobfuscate$ python mtunnel.py -r 178.62.84.249 -p 9051
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we start up our remote server (no connection is made until the SOCKS proxy is attempted to be used):&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bwall@remotecomputer:~/markovobfuscate$ python mtunnel.py -s
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then on the local computer, we run curl in order to grab some data&amp;hellip;doesn&amp;rsquo;t really matter where, as long as the remote server can see it:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;bwall@localcomputer:~/markovobfuscate$ curl --socks4a 127.0.0.1:9051 https://bwall.github.io/sitemap.xml
+&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; standalone=&amp;quot;yes&amp;quot; ?&amp;gt;
+&amp;lt;urlset xmlns=&amp;quot;http://www.sitemaps.org/schemas/sitemap/0.9&amp;quot;&amp;gt;
+
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;https://bwall.github.io/&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;2015-11-21T15:41:07-07:00&amp;lt;/lastmod&amp;gt;
+    &amp;lt;priority&amp;gt;0&amp;lt;/priority&amp;gt;
+  &amp;lt;/url&amp;gt;
+
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;https://bwall.github.io/markov-chains-keyed-obfuscation/&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;2015-11-21T15:41:07-07:00&amp;lt;/lastmod&amp;gt;
+  &amp;lt;/url&amp;gt;
+
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;https://bwall.github.io/libemu-scapy-for-shellcode-on-the-network/&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;2015-10-11T15:41:07-07:00&amp;lt;/lastmod&amp;gt;
+  &amp;lt;/url&amp;gt;
+
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;https://bwall.github.io/bamfdetect/&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;2015-10-04T17:59:07-07:00&amp;lt;/lastmod&amp;gt;
+  &amp;lt;/url&amp;gt;
+
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;https://bwall.github.io/torque-exploit/&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;2014-06-02T16:19:07-07:00&amp;lt;/lastmod&amp;gt;
+  &amp;lt;/url&amp;gt;
+
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;https://bwall.github.io/extract-hosts/&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;2014-04-18T10:19:07-07:00&amp;lt;/lastmod&amp;gt;
+  &amp;lt;/url&amp;gt;
+
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;https://bwall.github.io/murdering-dexter/&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;2014-03-16T10:19:07-07:00&amp;lt;/lastmod&amp;gt;
+  &amp;lt;/url&amp;gt;
+
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;https://bwall.github.io/herpes-net-3.0-sqli/&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;2014-03-09T10:19:07-07:00&amp;lt;/lastmod&amp;gt;
+  &amp;lt;/url&amp;gt;
+
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;https://bwall.github.io/rsac-2014-botnet-vulnerabilities/&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;2014-03-09T10:19:07-07:00&amp;lt;/lastmod&amp;gt;
+  &amp;lt;/url&amp;gt;
+
+  &amp;lt;url&amp;gt;
+    &amp;lt;loc&amp;gt;https://bwall.github.io/multilocker-backdoor/&amp;lt;/loc&amp;gt;
+    &amp;lt;lastmod&amp;gt;2014-03-09T10:19:07-07:00&amp;lt;/lastmod&amp;gt;
+  &amp;lt;/url&amp;gt;
+
+&amp;lt;/urlset&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If we watch this communication in Wireshark, we can see this is the data that is sent over TCP data:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_pcap.png&#34; alt=&#34;MarkovObfuscation mtunnel PCAP data&#34; /&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Pretty obvious to see that this is not an HTTPS connection.  In its current state though, it doesn&amp;rsquo;t quite look like anything else.  This could be converted to look like HTTP traffic, or some other protocol which may go relatively unnoticed.&lt;/p&gt;
+
+&lt;p&gt;Enjoy :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_ed2.gif&#34; alt=&#34;Ed again&#34; /&gt;
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Using Markov chains as a keyed obfuscation method</title>
       <link>https://bwall.github.io/markov-chains-keyed-obfuscation/</link>
-      <pubDate>Sat, 21 Nov 2015 15:41:07 -0700</pubDate>
+      <pubDate>Fri, 20 Nov 2015 19:41:07 -0700</pubDate>
       
       <guid>https://bwall.github.io/markov-chains-keyed-obfuscation/</guid>
       <description>
