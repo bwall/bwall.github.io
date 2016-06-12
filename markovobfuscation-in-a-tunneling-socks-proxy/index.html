@@ -162,15 +162,13 @@
 
 <p>After I saw folks appeared interested in the MarkovObfuscation blog post, I decided I needed a proof of concept that actually did something.  So I started hacking away&hellip;</p>
 
-<p><img src="/images/markovobfuscation_mtunnel_ed.gif" alt="Edward" />
-</p>
+<p><img src="/images/markovobfuscation_mtunnel_ed.gif" alt="Edward" /></p>
 
 <p>What I ended up with was a Python 2.7 script which created an obfuscated tunnel which could be used by anything that supported SOCKS4/SOCKS4a interfaces.</p>
 
 <p>The script, <a href="https://github.com/bwall/markovobfuscate/blob/master/mtunnel.py">mtunnel.py</a>, can be found in the <a href="https://github.com/bwall/markovobfuscate">MarkovObfuscation Github repository</a>.  This script needs to be run in two locations, local to your local application, and on a remote server (where you are tunneling out to).  When the local script is run, it provides an obfuscated tunnel to the remote server which provides a SOCKS4 and SOCKS4a interface in order to allow arbitrary TCP connections out to servers on the other end of the proxy.</p>
 
-<p><img src="/images/markovobfuscation_mtunnel_diagram.png" alt="MarkovObfuscation mtunnel diagram" />
-</p>
+<p><img src="/images/markovobfuscation_mtunnel_diagram.png" alt="MarkovObfuscation mtunnel diagram" /></p>
 
 <h2 id="example-usage:d712b37315982ff405528d510281f1c4">Example Usage</h2>
 
@@ -256,15 +254,13 @@ wget http://www.gutenberg.org/files/98/98.txt -O datasets/98.txt
 
 <p>If we watch this communication in Wireshark, we can see this is the data that is sent over TCP data:</p>
 
-<p><img src="/images/markovobfuscation_mtunnel_pcap.png" alt="MarkovObfuscation mtunnel PCAP data" />
-</p>
+<p><img src="/images/markovobfuscation_mtunnel_pcap.png" alt="MarkovObfuscation mtunnel PCAP data" /></p>
 
 <p>Pretty obvious to see that this is not an HTTPS connection.  In its current state though, it doesn&rsquo;t quite look like anything else.  This could be converted to look like HTTP traffic, or some other protocol which may go relatively unnoticed.</p>
 
 <p>Enjoy :)</p>
 
-<p><img src="/images/markovobfuscation_mtunnel_ed2.gif" alt="Ed again" />
-</p>
+<p><img src="/images/markovobfuscation_mtunnel_ed2.gif" alt="Ed again" /></p>
 </div>
     <div class="tags">
       21 Nov 2015
@@ -289,7 +285,7 @@ wget http://www.gutenberg.org/files/98/98.txt -O datasets/98.txt
 
 <paper-item>
   
-    <paper-fab disabled icon="chevron-left"></paper-fab>
+    <a href="https://bwall.github.io/bamfdetect-module-competition/"><paper-fab icon="chevron-left"><a></a></paper-fab></a>
   
     <div class="flex"></div>
   

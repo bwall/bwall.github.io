@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Competition on @botnet_hunter&#39;s blog</title>
+    <link>https://bwall.github.io/categories/competition/</link>
+    <description>Recent content in Competition on @botnet_hunter&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <copyright>© 2015 Copyright Brian Wallace</copyright>
+    <lastBuildDate>Sun, 12 Jun 2016 12:10:26 -0700</lastBuildDate>
+    <atom:link href="https://bwall.github.io/categories/competition/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>bamfdetect Module Competition</title>
+      <link>https://bwall.github.io/bamfdetect-module-competition/</link>
+      <pubDate>Sun, 12 Jun 2016 12:10:26 -0700</pubDate>
+      
+      <guid>https://bwall.github.io/bamfdetect-module-competition/</guid>
+      <description>
+
+&lt;p&gt;Writing modules for bamfdetect requires a variety of talents including reverse engineering, parsing, decryption, as well as development. For this reason, I invite everyone to test their skills to create bamfdetect modules, and compete for cash prizes.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
+&lt;h1 id=&#34;bamfdetect:a8cb2ae9b81bc6d5e7db050c1a8053b0&#34;&gt;bamfdetect&lt;/h1&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/bwall/bamfdetect&#34;&gt;bamfdetect&lt;/a&gt; is a tool designed to extract the command and control configuration details from malware statically.&lt;/p&gt;
+
+&lt;h1 id=&#34;bamfdetect-modules:a8cb2ae9b81bc6d5e7db050c1a8053b0&#34;&gt;bamfdetect modules&lt;/h1&gt;
+
+&lt;p&gt;It is highly suggested that before writing modules for the competition that you use bamfdetect to some capacity to get an understanding of how it operates. Modules which do not make sense to the overall operation of bamfdetect may not be merged, and may not be considered a submission.&lt;/p&gt;
+
+&lt;p&gt;bamfdetect supports three kinds of modules. These modules are referred to as preprocessors, detections modules, and post processors. With preprocessors, you have control over the raw data to be parsed by the detection modules. For instance, the existing preprocessing module is designed to decompress UPX packed files (although temporarily disabled due to security concerns with UPX). While the primary inspiration for preprocessing modules is to unpack or deobfuscate data, that is not the sole purpose of these modules, and other preprocessing ideas may be applied. Archive decompression is not considered part of preprocessing modules, and preprocessing has one input and has one output (as opposed to one input and multiple outputted files).&lt;/p&gt;
+
+&lt;p&gt;The detection modules are the heart of bamfdetect. They are responsible for both identifying the target malware family (primarily via YARA) as well as parsing and extracting out the bot&amp;rsquo;s configuration. All configuration extraction methods are required to be static and not based on executing the malware. The closer to pure python these modules can be, the better.&lt;/p&gt;
+
+&lt;p&gt;The post processing modules focus around using the information extracted from bot panels. For instance, in my private bamfdetect repository, I have a module which uploads all extracted bot configurations to my botnet tracking system. This allows me to immediately start tracking any malware that gets processed by my local bamfdetect setup. These modules allow for a good deal of creativity.&lt;/p&gt;
+
+&lt;h1 id=&#34;competition:a8cb2ae9b81bc6d5e7db050c1a8053b0&#34;&gt;competition&lt;/h1&gt;
+
+&lt;p&gt;Multiple judges (totally more than just me), will rate pull requests to the bamfdetect repository (not including previous ones). The sum of the ratings for an individual user will lead to the user&amp;rsquo;s overall score. Once the overall scores have been determined, we will sort the users by their score, and assign prizes and announce the winners.&lt;/p&gt;
+
+&lt;p&gt;Submissions must be your own, and not the property of any corporation. The submissions will be open source and will be under the same license as bamfdetect itself. For detection modules, ensure that the judges can access the actual malware being parsed (SHA256 will suffice if sample is uploaded to VirusTotal).&lt;/p&gt;
+
+&lt;p&gt;The first cut off for submissions is August 1st, although there are a number of scenarios where this cut off will be extended. There is no reason the cut off would be made earlier. If this results in quality contributions to bamfdetect, I will be happy to have similar competitions in the future.&lt;/p&gt;
+
+&lt;h2 id=&#34;prizes:a8cb2ae9b81bc6d5e7db050c1a8053b0&#34;&gt;Prizes&lt;/h2&gt;
+
+&lt;p&gt;Prizes are USD values distributed in the form of gift cards (of the user&amp;rsquo;s choice). I must be able to purchase said gift card over the internet with some level of anoniminity. Amazon gift cards are the preferred location.&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;$250 in gift card&lt;/li&gt;
+&lt;li&gt;$100 in gift card&lt;/li&gt;
+&lt;li&gt;$50 in gift card&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Happy Hunting :)&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
