@@ -26,15 +26,13 @@
 
 &lt;p&gt;After I saw folks appeared interested in the MarkovObfuscation blog post, I decided I needed a proof of concept that actually did something.  So I started hacking away&amp;hellip;&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_ed.gif&#34; alt=&#34;Edward&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_ed.gif&#34; alt=&#34;Edward&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;What I ended up with was a Python 2.7 script which created an obfuscated tunnel which could be used by anything that supported SOCKS4/SOCKS4a interfaces.&lt;/p&gt;
 
 &lt;p&gt;The script, &lt;a href=&#34;https://github.com/bwall/markovobfuscate/blob/master/mtunnel.py&#34;&gt;mtunnel.py&lt;/a&gt;, can be found in the &lt;a href=&#34;https://github.com/bwall/markovobfuscate&#34;&gt;MarkovObfuscation Github repository&lt;/a&gt;.  This script needs to be run in two locations, local to your local application, and on a remote server (where you are tunneling out to).  When the local script is run, it provides an obfuscated tunnel to the remote server which provides a SOCKS4 and SOCKS4a interface in order to allow arbitrary TCP connections out to servers on the other end of the proxy.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_diagram.png&#34; alt=&#34;MarkovObfuscation mtunnel diagram&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_diagram.png&#34; alt=&#34;MarkovObfuscation mtunnel diagram&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;example-usage:d712b37315982ff405528d510281f1c4&#34;&gt;Example Usage&lt;/h2&gt;
 
@@ -120,15 +118,13 @@ wget http://www.gutenberg.org/files/98/98.txt -O datasets/98.txt
 
 &lt;p&gt;If we watch this communication in Wireshark, we can see this is the data that is sent over TCP data:&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_pcap.png&#34; alt=&#34;MarkovObfuscation mtunnel PCAP data&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_pcap.png&#34; alt=&#34;MarkovObfuscation mtunnel PCAP data&#34; /&gt;&lt;/p&gt;
 
 &lt;p&gt;Pretty obvious to see that this is not an HTTPS connection.  In its current state though, it doesn&amp;rsquo;t quite look like anything else.  This could be converted to look like HTTP traffic, or some other protocol which may go relatively unnoticed.&lt;/p&gt;
 
 &lt;p&gt;Enjoy :)&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_ed2.gif&#34; alt=&#34;Ed again&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/markovobfuscation_mtunnel_ed2.gif&#34; alt=&#34;Ed again&#34; /&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -559,8 +555,7 @@ TtCqSwGl9t9JEoFqvtW+znZ9TqyLiOMw7TGEUI+88VAqW0qmXnwPcfo=
 
 &lt;p&gt;Even simple machine learning can blow conventional opposition out of the water.&lt;/p&gt;
 
-&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/mindblown.gif&#34; alt=&#34;Mind-fucking-blown&#34; /&gt;
-&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://bwall.github.io/images/mindblown.gif&#34; alt=&#34;Mind-fucking-blown&#34; /&gt;&lt;/p&gt;
 
 &lt;h2 id=&#34;addendum:84e7421e24ba41f3bed9835a932084c9&#34;&gt;Addendum&lt;/h2&gt;
 

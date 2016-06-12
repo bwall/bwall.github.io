@@ -1,0 +1,237 @@
+
+<!doctype html>
+<html lang="en-us">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+  <title>bamfdetect Module Competition</title>
+  <script src="https://bwall.github.io//bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="https://bwall.github.io//bower_components/iron-icons/iron-icons.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-drawer-panel/paper-drawer-panel.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-icon-button/paper-icon-button.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-toolbar/paper-toolbar.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-scroll-header-panel/paper-scroll-header-panel.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-fab/paper-fab.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-item/paper-item.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/paper-menu/paper-menu.html">
+  <link rel="import" href="https://bwall.github.io//bower_components/iron-image/iron-image.html">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/styles/default.min.css">
+  <style is="custom-style">
+    body {
+      font-family: 'Roboto', sans-serif;
+    }
+    .nav {
+      border-right: 1px solid #ccc;
+    }
+    
+    paper-scroll-header-panel {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: var(--paper-grey-200, #eee);
+       
+      --paper-scroll-header-panel-full-header: {
+        background-image: url(https://bwall.github.io//images/tracking.png);
+      };
+       
+      --paper-scroll-header-panel-condensed-header: {
+        background-image: url(https://bwall.github.io//images/tracking.png);
+      };
+    }
+    
+    paper-toolbar {
+       
+      height: 256px;
+      background-color: transparent;
+    }
+    .profile{
+      width: 100%;
+      padding-bottom: 20px;
+    }
+    .photo{
+      margin: 20px;
+      display: inline-block;
+      height: 64px; width: 64px;
+      border-radius: 50%;
+    }
+    .article{
+      border: 1px solid #bebebe;
+      padding: 16px;
+      margin: 16px;
+      border-radius: 5px;
+      background-color: #fff;
+    }
+    .title{
+      font-size: 22px;
+      padding: 8px 0 16px;
+    }
+    .description{
+      font-size: 16px;
+      padding-bottom: 8px;
+    }
+    .author{
+      font-size: 16px;
+      padding-left: 20px;
+      color: white;
+    }
+    .design{
+      font-size: 14px;
+    }
+    .copyright{
+      font-size: 16px;
+    }
+    paper-menu a {
+      text-decoration: none;
+      color: #212121;
+    }
+  </style>
+
+</head>
+<body>
+  <paper-drawer-panel id="drawerPanel" responsive-width="1280px">
+    <div class="nav scroll" drawer>
+    
+      <iron-image class="profile" sizing="cover" src="https://bwall.github.io//images/vaultboy.jpg">
+    
+        
+          <iron-image class="photo" sizing="cover" src="https://bwall.github.io//images/bwall.png"></iron-image>
+        
+          <div class="author">Brian Wallace</div>
+      </iron-image>
+      <paper-menu>
+        <a href="https://bwall.github.io/"><paper-item>
+          <iron-icon icon="home"></iron-icon>　<div class="flex">Home</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+        <a href="https://bwall.github.io//categories/"><paper-item>
+          <iron-icon icon="drafts"></iron-icon>　<div class="flex">Categories</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+        <a href="https://bwall.github.io//tags/"><paper-item>
+          <iron-icon icon="loyalty"></iron-icon>　<div class="flex">Tags</div>
+          <iron-icon icon="chevron-right"></iron-icon>
+        </paper-item></a>
+      </paper-menu>
+    </div>
+
+    <paper-scroll-header-panel main condenses header-height="256" condensed-header-height="64">
+
+      <paper-toolbar>
+
+        <paper-icon-button icon="menu" paper-drawer-toggle></paper-icon-button>
+        <div class="bottom title">@botnet_hunter&#39;s blog</div>
+        <div class="flex"></div>
+        
+        
+          <a href="https://twitter.com/botnet_hunter"><paper-icon-button src="https://bwall.github.io//images/twitter-dreamstale71.png"></paper-icon-button></a>
+        
+        
+        
+          <a href="https://www.linkedin.com/in/botnethunter"><paper-icon-button src="https://bwall.github.io//images/linkedin-dreamstale45.png"></paper-icon-button></a>
+        
+        
+          <a href="https://github.com/bwall"><paper-icon-button src="https://bwall.github.io//images/github2-dreamstale35.png"></paper-icon-button></a>
+        
+          <a href="https://bwall.github.io//index.xml"><paper-icon-button src="https://bwall.github.io//images/feed-dreamstale27.png"></paper-icon-button></a>
+      
+      </paper-toolbar>
+
+
+
+<div class="content">
+
+  <div class="article">
+    <div class="title">bamfdetect Module Competition</div>
+    
+      <div class="categories">
+        
+          <a href="https://bwall.github.io//categories/tools/">tools</a>
+        
+          <a href="https://bwall.github.io//categories/competition/">competition</a>
+        
+      </div>
+     
+    <div class="description">
+
+<p>Writing modules for bamfdetect requires a variety of talents including reverse engineering, parsing, decryption, as well as development. For this reason, I invite everyone to test their skills to create bamfdetect modules, and compete for cash prizes.</p>
+
+<!-- more -->
+
+<h1 id="bamfdetect:a8cb2ae9b81bc6d5e7db050c1a8053b0">bamfdetect</h1>
+
+<p><a href="https://github.com/bwall/bamfdetect">bamfdetect</a> is a tool designed to extract the command and control configuration details from malware statically.</p>
+
+<h1 id="bamfdetect-modules:a8cb2ae9b81bc6d5e7db050c1a8053b0">bamfdetect modules</h1>
+
+<p>It is highly suggested that before writing modules for the competition that you use bamfdetect to some capacity to get an understanding of how it operates. Modules which do not make sense to the overall operation of bamfdetect may not be merged, and may not be considered a submission.</p>
+
+<p>bamfdetect supports three kinds of modules. These modules are referred to as preprocessors, detections modules, and post processors. With preprocessors, you have control over the raw data to be parsed by the detection modules. For instance, the existing preprocessing module is designed to decompress UPX packed files (although temporarily disabled due to security concerns with UPX). While the primary inspiration for preprocessing modules is to unpack or deobfuscate data, that is not the sole purpose of these modules, and other preprocessing ideas may be applied. Archive decompression is not considered part of preprocessing modules, and preprocessing has one input and has one output (as opposed to one input and multiple outputted files).</p>
+
+<p>The detection modules are the heart of bamfdetect. They are responsible for both identifying the target malware family (primarily via YARA) as well as parsing and extracting out the bot&rsquo;s configuration. All configuration extraction methods are required to be static and not based on executing the malware. The closer to pure python these modules can be, the better.</p>
+
+<p>The post processing modules focus around using the information extracted from bot panels. For instance, in my private bamfdetect repository, I have a module which uploads all extracted bot configurations to my botnet tracking system. This allows me to immediately start tracking any malware that gets processed by my local bamfdetect setup. These modules allow for a good deal of creativity.</p>
+
+<h1 id="competition:a8cb2ae9b81bc6d5e7db050c1a8053b0">competition</h1>
+
+<p>Multiple judges (totally more than just me), will rate pull requests to the bamfdetect repository (not including previous ones). The sum of the ratings for an individual user will lead to the user&rsquo;s overall score. Once the overall scores have been determined, we will sort the users by their score, and assign prizes and announce the winners.</p>
+
+<p>Submissions must be your own, and not the property of any corporation. The submissions will be open source and will be under the same license as bamfdetect itself. For detection modules, ensure that the judges can access the actual malware being parsed (SHA256 will suffice if sample is uploaded to VirusTotal).</p>
+
+<p>The first cut off for submissions is August 1st, although there are a number of scenarios where this cut off will be extended. There is no reason the cut off would be made earlier. If this results in quality contributions to bamfdetect, I will be happy to have similar competitions in the future.</p>
+
+<h2 id="prizes:a8cb2ae9b81bc6d5e7db050c1a8053b0">Prizes</h2>
+
+<p>Prizes are USD values distributed in the form of gift cards (of the user&rsquo;s choice). I must be able to purchase said gift card over the internet with some level of anoniminity. Amazon gift cards are the preferred location.</p>
+
+<ol>
+<li>$250 in gift card</li>
+<li>$100 in gift card</li>
+<li>$50 in gift card</li>
+</ol>
+
+<p>Happy Hunting :)</p>
+</div>
+    <div class="tags">
+      12 Jun 2016
+      
+        
+          <a href="https://bwall.github.io//tags/botnet/">#botnet</a>
+        
+          <a href="https://bwall.github.io//tags/python/">#python</a>
+        
+          <a href="https://bwall.github.io//tags/project/">#project</a>
+        
+          <a href="https://bwall.github.io//tags/utility/">#utility</a>
+        
+       
+    </div>
+    
+  </div>
+
+</div>
+
+<paper-item>
+  
+    <paper-fab disabled icon="chevron-left"></paper-fab>
+  
+    <div class="flex"></div>
+  
+    <a href="https://bwall.github.io/markovobfuscation-in-a-tunneling-socks-proxy/"><paper-fab icon="chevron-right"></paper-fab></a>
+  
+</paper-item>
+
+      <paper-item>
+        <div class="copyright">© 2015 Copyright Brian Wallace</div>
+        <div class="flex"></div>
+        <div class="design">Design <a href="http://pdevty.github.io/blog/">pdevty</a></div>
+      </paper-item>
+    </paper-scroll-header-panel>
+  </paper-drawer-panel>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/8.6/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+</body>
+</html>
